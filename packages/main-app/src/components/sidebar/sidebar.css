@@ -1,0 +1,18 @@
+.ant-menu-item {
+    height:  auto !important;
+    background-color: white;
+    padding-left: 0 !important;
+
+}
+.ant-menu{
+    background: white !important;
+}
+.ant-menu-item-selected {
+    background-color: white !important;
+}
+.ant-menu-submenu-title{
+    padding-inline: 0 !important;
+}
+.ant-menu-title-content{
+    color: none !important;
+}

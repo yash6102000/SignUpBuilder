@@ -1,0 +1,6 @@
+/// <reference types="react" />
+import type { JSX } from 'stencil-library';
+export declare const ContainerWrapper: import("react").ForwardRefExoticComponent<JSX.ContainerWrapper & Omit<import("react").HTMLAttributes<HTMLContainerWrapperElement>, "style"> & import("./react-component-lib/interfaces").StyleReactProps & import("react").RefAttributes<HTMLContainerWrapperElement>>;
+export declare const FormComponent: import("react").ForwardRefExoticComponent<JSX.FormComponent & Omit<import("react").HTMLAttributes<HTMLFormComponentElement>, "style"> & import("./react-component-lib/interfaces").StyleReactProps & import("react").RefAttributes<HTMLFormComponentElement>>;
+export declare const FormWrapper: import("react").ForwardRefExoticComponent<JSX.FormWrapper & Omit<import("react").HTMLAttributes<HTMLFormWrapperElement>, "style"> & import("./react-component-lib/interfaces").StyleReactProps & import("react").RefAttributes<HTMLFormWrapperElement>>;
+export declare const MyComponent: import("react").ForwardRefExoticComponent<JSX.MyComponent & Omit<import("react").HTMLAttributes<HTMLMyComponentElement>, "style"> & import("./react-component-lib/interfaces").StyleReactProps & import("react").RefAttributes<HTMLMyComponentElement>>;

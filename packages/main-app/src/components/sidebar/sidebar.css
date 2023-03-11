@@ -2,7 +2,6 @@
     height:  auto !important;
     background-color: white;
     padding-left: 0 !important;
-
 }
 .ant-menu{
     background: white !important;
@@ -13,6 +12,7 @@
 .ant-menu-submenu-title{
     padding-inline: 0 !important;
 }
-.ant-menu-title-content{
-    color: none !important;
+
+.ant-menu-submenu-title{
+    font-size: 12px !important;
 }

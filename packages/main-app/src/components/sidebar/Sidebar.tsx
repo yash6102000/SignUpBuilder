@@ -4,7 +4,8 @@ import  { MenuProps,Menu } from 'antd';
 //@ts-ignore
 import Theme from './styling/theme';
 import "./sidebar.css"
-import ButtonStyling from './styling/SocialButtonStyling';
+import ButtonStyling from './styling/ButtonStyling';
+import Colors from './styling/colors';
 
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -41,14 +42,11 @@ const Sidebar = () => {
    
     ]),
     getItem('Buttons', 'sub2','',[
-      getItem('button-styling', '2',null,[getItem(<ButtonStyling/>, '7')]),
-      getItem('Submenu', 'sub3', null, [getItem('Option 8', '8'), getItem('Option 87', '87')]),
+     getItem(<ButtonStyling/>, '2'),
+     
     ]),
-    getItem('Navigation Three', 'sub4','',[
-      getItem('Option 9', '9'),
-      getItem('Option 10', '10'),
-      getItem('Option 11', '11'),
-      getItem('Option 12', '12'),
+    getItem('Colors', 'sub4','',[
+      getItem(<Colors/>, '3')
     ]),
   ];
 

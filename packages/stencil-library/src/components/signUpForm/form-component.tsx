@@ -1,6 +1,7 @@
-import { Component, Prop, State, h } from '@stencil/core';
+import { Component, Prop, Watch, State, h } from '@stencil/core';
 import edit from '../../edit.svg';
 import avatar from '../../Avatar.svg';
+import googleIcon from '../../googleIcon.svg';
 //@ts-ignore
 @Component({
   tag: 'form-component',
@@ -9,8 +10,32 @@ import avatar from '../../Avatar.svg';
 })
 export class FormComponent {
   @Prop() data: any;
-  @State()
+  @State() email: string = '';
+  @Watch('data')
+ 
+  handleChange(event) {
+    this.email = event.target.value;
+  }
+
   render() {
+    const buttonData = [
+      {
+        buttonText: 'google',
+        icon: googleIcon,
+      },
+      {
+        buttonText: 'microsoft',
+        icon: googleIcon,
+      },
+      {
+        buttonText: 'git',
+        icon: googleIcon,
+      },
+      {
+        buttonText: 'facebook',
+        icon: googleIcon,
+      },
+    ];
     return (
       <div
         class={`flex  rounded-xl  border-text-[#8C8C8C] border ${this.data.theme.color === 'dark' ? 'bg-black' : this.data.theme.color === 'texture' ? 'bg-gray-600' : 'bg-white'}`}
@@ -58,37 +83,80 @@ export class FormComponent {
           </div>
 
           <div class="flex flex-col gap-9">
-            <div class="flex flex-col gap-7">
-              <div class="flex flex-col gap-2">
-                <label class={`${this.data.theme.color === 'light' ? 'text-gray-600' : 'text-white'} `} htmlFor="">
-                  Email
-                </label>
-                <input class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm text-sm`} placeholder="Enter your email" type="text" />
+            <div class={`flex gap-8 ${this.data.buttons.socialButtons.position.top ? 'flex-col-reverse' : 'flex-col'}`}>
+              <div class={`flex flex-col gap-7`}>
+                <div class="flex flex-col gap-2">
+                  <label class={`${this.data.theme.color === 'light' ? 'text-gray-600' : 'text-white'} `} htmlFor="">
+                    Email
+                  </label>
+                  <input
+                    value={this.email}
+                    onInput={event => this.handleChange(event)}
+                    class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm text-sm`}
+                    placeholder="Enter your email"
+                    type="text"
+                  />
+                  {!this.email.includes('@') && this.email.length !==0 && <div >please enter valid email</div>}
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label class={`${this.data.theme.color === 'light' ? 'text-gray-600' : 'text-white'} rounded-sm text-sm`} htmlFor="">
+                    Password
+                  </label>
+                  <input class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm text-sm`} placeholder="Enter your password" type="password" />
+                </div>
+                <button
+                  style={{
+                    color: `${this.data.buttons.submitButton.fontColor}`,
+                    backgroundColor: `${this.data.buttons.submitButton.backgroundColor}`,
+                    fontWeight: `${this.data.buttons.submitButton.fontWeight}`,
+                    borderRadius: `${this.data.buttons.submitButton.borderRadius}px`,
+                  }}
+                  class={`bg-[#070930]  text-${this.data.buttons.submitButton.fontSize} rounded-sm py-2 text-center items-center text-white`}
+                >
+                  Continue
+                </button>
+                <div class="flex flex-col gap-1">
+                  <span class={`text-xs text-gray-600 ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'}`}>
+                    By continuing, you agree to the{' '}
+                    <a href="/" class="text-blue-600">
+                      Terms of Service
+                    </a>{' '}
+                    and{' '}
+                    <a class="text-blue-600" href="/">
+                      Privacy Policy
+                    </a>
+                  </span>
+                </div>
               </div>
-              <div class="flex flex-col gap-2">
-                <label class={`${this.data.theme.color === 'light' ? 'text-gray-600' : 'text-white'} rounded-sm text-sm`} htmlFor="">
-                  Password
-                </label>
-                <input class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm text-sm`} placeholder="Enter your password" type="password" />
+              <div class={`flex gap-9 ${this.data.buttons.socialButtons.position.top ? 'flex-col-reverse' : 'flex-col'}`}>
+                <div class="flex justify-between items-center gap-2">
+                  <hr class="h-px w-full bg-gray-300" />{' '}
+                  <div class={`text-xs w-full text-gray-600 text-center ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'} `}>OR SIGNUP WITH</div>{' '}
+                  <hr class="h-px w-full bg-gray-300" />
+                </div>
+                <div class="flex gap-3 items-center">
+                  {buttonData.map((data: any, index: number) => {
+                    return (
+                      <button
+                        style={{
+                          color: `${this.data.buttons.socialButtons.fontColor}`,
+                          backgroundColor: `${this.data.buttons.socialButtons.backgroundColor}`,
+                          fontWeight: `${this.data.buttons.socialButtons.fontWeight}`,
+                          borderRadius: `${this.data.buttons.socialButtons.borderRadius}px`,
+                        }}
+                        class={`border w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md items-center text-${this.data.buttons.socialButtons.fontSize}`}
+                      >
+                        <img class="w-[18px] h-[18px]" src={data.icon} alt="" />{' '}
+                        {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && index === 3 ? data.buttonText : null}
+                      </button>
+                    );
+                  })}
+                </div>
               </div>
-              <button class={`bg-[#070930] rounded-sm py-2 text-center items-center text-white`}>Continue</button>
             </div>
-            <div class="flex flex-col gap-1">
-              <span class={`text-xs text-gray-600 ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'}`}>
-                By continuing, you agree to the{' '}
-                <a href="/" class="text-blue-600">
-                  Terms of Service
-                </a>{' '}
-                and{' '}
-                <a class="text-blue-600" href="/">
-                  Privacy Policy
-                </a>
-              </span>
-            </div>
-            <div class={`text-xs text-gray-600 text-center ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'} `}>OR SIGNUP WITH</div>
-            <button class={`border rounded-sm py-2 text-center shadow-md items-center text-black`}>Google</button>
+
             <div class="flex items-center justify-center gap-0.5">
-              <span class={`text-sm ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'}`}>Already have an account?</span>
+              <span class={`text-sm ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'} `}>Already have an account?</span>
               <a href="/" class="text-sm text-blue-600">
                 Log In
               </a>

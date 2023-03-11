@@ -13,16 +13,40 @@ export default ({ children }: { children: any }) => {
     theme: {
       color: "light",
     },
-    buttons:{
-      socialButtons:{
-        position:{
-          buttom:true
+    buttons: {
+      socialButtons: {
+        position: {
+          bottom: true,
+          top: false,
         },
-        layout:{
-          layoutType:'Equally-Split',
-      
-        }
-      }
+        layout: {
+          layoutType: "Equally-Split",
+        },
+        fontSize: "sm",
+        fontWeight: "500",
+        fontColor: "#000000",
+        backgroundColor: "#FFFFFF",
+        borderRadius: 0,
+      },
+      submitButton: {
+        position: {
+          bottom: true,
+          top: false,
+        },
+        layout: {
+          layoutType: "Equally-Split",
+        },
+        fontSize: "sm",
+        fontWeight: "500",
+        fontColor: "#FFFFFF",
+        backgroundColor: "#070930",
+        borderRadius: 0,
+      },
+    },
+    colors:{
+      primary: "#2F54EB",
+      secondary: "#FFFFFF",
+      error: "#DC6264",
     }
   });
 

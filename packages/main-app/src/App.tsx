@@ -7,23 +7,26 @@ import StoreProvider from "../src/state/signUpState";
 import { StoreContext } from "../src/state/signUpState";
 import { createRoot } from "react-dom/client";
 import Container from "./Container";
+import { Tabs, TabsProps } from "antd";
+import SidebarTabs from "./components/sidebar/SidebarTabs";
 
 //@ts-ignore
 defineCustomElements();
 const App = () => {
   const { signUpState }: any = React.useContext(StoreContext);
+ 
   return (
     <div className="flex flex-col">
       <React.Suspense fallback="loading.....">
         <Header />
         <div className="flex">
-          <div className="flex flex-1" >
+          <div className="flex flex-1">
             <Container>
               <FormComponent data={signUpState.state} />
             </Container>
           </div>
-          <div className="min-w-[355px]">
-            <Sidebar />
+          <div className="w-[355px]">
+          <SidebarTabs/>
           </div>
         </div>
       </React.Suspense>

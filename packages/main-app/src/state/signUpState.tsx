@@ -4,7 +4,6 @@ export const StoreContext = React.createContext(null);
 
 export default ({ children }: { children: any }) => {
   const [state, setState] = React.useState({
-    activeKey:["1","2"],
     viewPort: {
       desktop: true,
       tablet: false,
@@ -52,7 +51,8 @@ export default ({ children }: { children: any }) => {
       backgroundColor: "#FFFFFF",
       boxBorder: 0,
       boxShadow:''
-    }
+    },
+    logoImage:null
   });
 
   const store = {

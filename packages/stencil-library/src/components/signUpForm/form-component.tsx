@@ -3,6 +3,8 @@ import { Component, Prop, Watch, State, h } from '@stencil/core';
 import googleIcon from '../../googleIcon.svg';
 import addLogo from '../../addLogo.svg';
 import starLogo from '../../star.svg';
+import avtar from '../../Avatar.svg';
+import addCircleOutline from '../../AddCircleOutline.svg'
 //@ts-ignore
 @Component({
   tag: 'form-component',
@@ -36,8 +38,8 @@ export class FormComponent {
         icon: googleIcon,
       },
     ];
-    console.log(this.data.buttons.socialButtons.fontSize, 'this.data.signUpBox.backgroundColor');
-  
+    console.log(this.data.logoImage, 'this.data.signUpBox.backgroundColor');
+
     return (
       <div
         class={`flex  rounded-xl ${this.data.viewPort.fullScreen && 'w-fit'}  border-text-[#8C8C8C] border ${
@@ -47,8 +49,15 @@ export class FormComponent {
         {this.data.viewPort.fullScreen || this.data.viewPort.desktop ? (
           <div class={`bg-[#070930] min-w-[424px] rounded-lg   px-[50px] pb-[63px] pt-[30px]`}>
             <div class="flex flex-col gap-20 ">
-              <div class="flex items-center gap-2.5">
-                <span class="font-medium text-white">Add Company Logo</span>
+              <div>
+                {this.data.logoImage ? (
+                  <img class="max-w-[100px]" src={this.data.logoImage} alt="" />
+                ) : (
+                  <div class="flex items-center gap-2">
+                    <img src={addCircleOutline} alt="" />
+                    <span class="font-medium text-white">Add Company Logo</span>
+                  </div>
+                )}
               </div>
               <div class="max-w-[280px]">
                 <h1 class="text-3xl font-medium text-white outline-none image relative" contentEditable={true}>
@@ -70,6 +79,7 @@ export class FormComponent {
                     "This SAAS product has made my life so much easier! It's intuitive, efficient, and has all the features I need to run my business smoothly."
                   </span>
                   <div class="flex gap-2 items-center">
+                    <img src={avtar} alt="" />
                     <div>
                       <h4 class="text-white text-sm">Arun Raj</h4>
                       <span class="text-white text-xs">Senior Product Manger @ABSoftwares</span>
@@ -81,21 +91,27 @@ export class FormComponent {
           </div>
         ) : null}
         <div
-          style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}`,borderWidth:`${this.data.signUpBox.boxBorder}px`,boxShadow:`${this.data.signUpBox.boxShadow}` }}
-          class={`flex rounded-lg p-5 flex-col my-20 gap-10 ${this.data.viewPort.tablet ? 'w-[768px]' : null} ${
+          style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}`, borderWidth: `${this.data.signUpBox.boxBorder}px`, boxShadow: `${this.data.signUpBox.boxShadow}` }}
+          class={`flex rounded-lg p-5 flex-col my-20 gap-10 ${this.data.viewPort.tablet ? 'w-[480px]' : null} ${
             this.data.viewPort.mobile ? 'w-[375px] ml-8 mr-8' : 'ml-10 mr-14 '
           } ${this.data.viewPort.fullScreen || this.data.viewPort.desktop ? 'w-3/5' : null} `}
         >
           <div class="flex  gap-[35px] flex-col">
             {this.data.viewPort.mobile && (
-              <div class="border items-center px-2 self-center flex flex-col gap-2 rounded-[52px] w-fit py-4">
-                <img class="h-5 w-5" src={addLogo} alt="" />
-                <span>Add Logo</span>
+              <div class="flex items-center justify-center">
+                {this.data.logoImage ? (
+                  <img class="max-w-[100px]" src={this.data.logoImage} alt="" />
+                ) : (
+                  <div class="border items-center px-2  flex flex-col gap-2 rounded-[52px] w-fit py-4">
+                    <img class="h-5 w-5" src={addLogo} alt="" />
+                    <span>Add Logo</span>
+                  </div>
+                )}
               </div>
             )}
 
             <div class="flex items-center gap-1.5">
-              <h3 class={`text-xl font-medium  text-black `} contentEditable={true}>
+              <h3 class={`text-xl font-medium  ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `} contentEditable={true}>
                 Welcome to Company Name!
               </h3>
             </div>
@@ -105,7 +121,7 @@ export class FormComponent {
             <div class={`flex gap-8 ${this.data.buttons.socialButtons.position.top ? 'flex-col-reverse' : 'flex-col'}`}>
               <div class={`flex flex-col gap-7`}>
                 <div class="flex flex-col gap-2">
-                  <label class={`text-black`} htmlFor="">
+                  <label class={`${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '}`} htmlFor="">
                     Email
                   </label>
                   <input
@@ -117,7 +133,7 @@ export class FormComponent {
                   />
                 </div>
                 <div class="flex flex-col gap-2">
-                  <label class={`text-black rounded-sm text-sm`} htmlFor="">
+                  <label class={`${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} rounded-sm text-sm`} htmlFor="">
                     Password
                   </label>
                   <input class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm text-sm`} placeholder="Enter your password" type="password" />
@@ -134,7 +150,7 @@ export class FormComponent {
                   Continue
                 </button>
                 <div class="flex flex-col gap-1">
-                  <span class={`text-xs text-gray-600 text-black`}>
+                  <span class={`text-xs text-gray-600 ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '}`}>
                     By continuing, you agree to the{' '}
                     <a href="/" style={{ color: this.data.colors.primary }}>
                       Terms of Service
@@ -148,10 +164,11 @@ export class FormComponent {
               </div>
               <div class={`flex gap-9 ${this.data.buttons.socialButtons.position.top ? 'flex-col-reverse' : 'flex-col'}`}>
                 <div class="flex justify-between items-center gap-2">
-                  <hr class="h-px w-full bg-gray-300" /> <div class={`text-xs w-full text-gray-600 text-center text-black `}>OR SIGNUP WITH</div>{' '}
+                  <hr class="h-px w-full bg-gray-300" />{' '}
+                  <div class={`text-xs w-full text-gray-600 text-center ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `}>OR SIGNUP WITH</div>{' '}
                   <hr class="h-px w-full bg-gray-300" />
                 </div>
-                <div class={`flex gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'?"flex-wrap":null} items-center`}>
+                <div class={`flex gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' ? 'flex-wrap' : null} items-center`}>
                   {buttonData.map((data: any, index: number) => {
                     return (
                       <div
@@ -183,7 +200,7 @@ export class FormComponent {
             </div>
 
             <div class="flex items-center justify-center gap-0.5">
-              <span class={`text-sm text-black `}>Already have an account?</span>
+              <span class={`text-sm ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `}>Already have an account?</span>
               <a style={{ color: this.data.colors.primary }} href="/">
                 Log In
               </a>

@@ -7,6 +7,7 @@ import "./sidebar.css"
 import ButtonStyling from './styling/ButtonStyling';
 import Colors from './styling/Colors';
 import SignUpBox from './styling/SignUpBox';
+import LogoImageStyling from './styling/LogoImageStyling';
 
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -46,12 +47,17 @@ const Sidebar = () => {
      getItem(<ButtonStyling/>, '2'),
      
     ]),
-    getItem('Colors', 'sub3','',[
-      getItem(<Colors/>, '3')
+    getItem('Logo Image', 'sub3','',[
+      getItem(<LogoImageStyling/>, '3')
     ]),
-    getItem('Sign Up Box', 'sub4','',[
-      getItem(<SignUpBox/>, '4')
+    getItem('Colors', 'sub4','',[
+      getItem(<Colors/>, '4')
     ]),
+    getItem('Sign Up Box', 'sub5','',[
+      getItem(<SignUpBox/>, '5')
+    ]),
+   
+
   ];
 
   const onOpenChange: MenuProps['onOpenChange'] = (keys:any) => {

@@ -26,11 +26,17 @@ export class SecondTemplate {
         icon: googleIcon,
       },
     ];
+   
     return (
       <div
-        class={`  flex  rounded-xl  border-text-[#8C8C8C] border ${this.data.theme.color === 'dark' ? 'bg-black' : this.data.theme.color === 'texture' ? 'bg-gray-600' : 'bg-white'}`}
+        class={`  flex  rounded-xl  border-text-[#8C8C8C] border ${
+          this.data.theme.color === 'dark' ? 'bg-black' : this.data.theme.color === 'texture' ? 'bg-gray-600' : 'bg-white'
+        }`}
       >
-        <div  style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}`,borderWidth:`${this.data.signUpBox.boxBorder}px`,boxShadow:`${this.data.signUpBox.boxShadow}` }}  class={`${this.data.viewPort.mobile ? 'w-[375px] px-6 py-6' : 'min-w-[400px] mx-28 my-20 '} rounded-lg `}>
+        <div
+          style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}`, borderWidth: `${this.data.signUpBox.boxBorder}px`, boxShadow: `${this.data.signUpBox.boxShadow}` }}
+          class={`${this.data.viewPort.mobile ? 'w-[375px] px-6 py-6' : 'min-w-[400px] mx-28 my-20 '} rounded-lg `}
+        >
           <div class={`flex  flex-col gap-10  p-3 `}>
             <div class="flex  gap-[35px] flex-col">
               <div class="flex justify-between items-center gap-1.5">
@@ -83,7 +89,7 @@ export class SecondTemplate {
                   <div class="flex justify-between items-center gap-2">
                     <hr class="h-px w-full bg-gray-300" /> <div class={`text-xs w-full text-gray-600 text-center  `}>OR SIGNUP WITH</div> <hr class="h-px w-full bg-gray-300" />
                   </div>
-                  <div class={`flex gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'?"flex-wrap":null}   items-center`}>
+                  <div class={`flex gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' ? 'flex-wrap' : null}   items-center`}>
                     {buttonData.map((data: any, index: number) => {
                       return (
                         <div
@@ -123,7 +129,12 @@ export class SecondTemplate {
             </div>
           </div>
         </div>
-        {this.data.viewPort.fullScreen || this.data.viewPort.desktop ? <div class={`flex bg-pink-400 flex-col py-20 gap-10 w-full justify-center items-center `}>Stealth Saas</div> : null}
+        {this.data.viewPort.fullScreen || this.data.viewPort.desktop ? (
+          <div class={`flex bg-pink-400 flex-col py-20 gap-10 w-full justify-center items-center `}>
+            Stealth Saas
+            
+          </div>
+        ) : null}
       </div>
     );
   }

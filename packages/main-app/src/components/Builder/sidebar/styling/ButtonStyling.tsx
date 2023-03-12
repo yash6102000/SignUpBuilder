@@ -3,7 +3,7 @@ import SocialButtonStyling from "./SocialButtonStyling";
 import SubmitButtonStying from "./submitButtonStyling";
 const ButtonStyling = () => {
   return (
-    <div className="p-5">
+    <div className="px-5">
       <SocialButtonStyling />
       <SubmitButtonStying />
     </div>

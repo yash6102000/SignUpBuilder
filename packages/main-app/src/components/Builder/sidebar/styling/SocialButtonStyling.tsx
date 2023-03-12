@@ -135,7 +135,7 @@ const SocialButtonStyling = () => {
   };
   const [currentAccordian, setCurrentAccordian] = useState(1);
   return (
-    <div className="flex flex-col py-5 gap-5">
+    <div className="flex flex-col pb-5 gap-5">
       <div
         className="flex gap-2 items-center"
         onKeyUp={(e) => {

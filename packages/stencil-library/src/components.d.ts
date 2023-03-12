@@ -26,6 +26,9 @@ export namespace Components {
          */
         "middle": any;
     }
+    interface SecondTemplate {
+        "data": any;
+    }
 }
 declare global {
     interface HTMLContainerWrapperElement extends Components.ContainerWrapper, HTMLStencilElement {
@@ -46,10 +49,17 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLSecondTemplateElement extends Components.SecondTemplate, HTMLStencilElement {
+    }
+    var HTMLSecondTemplateElement: {
+        prototype: HTMLSecondTemplateElement;
+        new (): HTMLSecondTemplateElement;
+    };
     interface HTMLElementTagNameMap {
         "container-wrapper": HTMLContainerWrapperElement;
         "form-component": HTMLFormComponentElement;
         "my-component": HTMLMyComponentElement;
+        "second-template": HTMLSecondTemplateElement;
     }
 }
 declare namespace LocalJSX {
@@ -73,10 +83,14 @@ declare namespace LocalJSX {
          */
         "middle"?: any;
     }
+    interface SecondTemplate {
+        "data"?: any;
+    }
     interface IntrinsicElements {
         "container-wrapper": ContainerWrapper;
         "form-component": FormComponent;
         "my-component": MyComponent;
+        "second-template": SecondTemplate;
     }
 }
 export { LocalJSX as JSX };
@@ -86,6 +100,7 @@ declare module "@stencil/core" {
             "container-wrapper": LocalJSX.ContainerWrapper & JSXBase.HTMLAttributes<HTMLContainerWrapperElement>;
             "form-component": LocalJSX.FormComponent & JSXBase.HTMLAttributes<HTMLFormComponentElement>;
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "second-template": LocalJSX.SecondTemplate & JSXBase.HTMLAttributes<HTMLSecondTemplateElement>;
         }
     }
 }

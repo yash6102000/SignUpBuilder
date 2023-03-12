@@ -1,7 +1,8 @@
 import { Component, Prop, Watch, State, h } from '@stencil/core';
-import edit from '../../edit.svg';
-import avatar from '../../Avatar.svg';
+
 import googleIcon from '../../googleIcon.svg';
+import addLogo from '../../addLogo.svg';
+import starLogo from '../../star.svg';
 //@ts-ignore
 @Component({
   tag: 'form-component',
@@ -12,9 +13,8 @@ export class FormComponent {
   @Prop() data: any;
   @State() email: string = '';
   @Watch('data')
- 
   handleChange(event) {
-    this.email = event.target.value;
+    this.email = event?.target?.value;
   }
 
   render() {
@@ -36,49 +36,67 @@ export class FormComponent {
         icon: googleIcon,
       },
     ];
+    console.log(this.data.buttons.socialButtons.fontSize, 'this.data.signUpBox.backgroundColor');
     return (
       <div
-        class={`flex  rounded-xl  border-text-[#8C8C8C] border ${this.data.theme.color === 'dark' ? 'bg-black' : this.data.theme.color === 'texture' ? 'bg-gray-600' : 'bg-white'}`}
+        class={`flex  rounded-xl ${this.data.viewPort.fullScreen && 'w-fit'}  border-text-[#8C8C8C] border ${
+          this.data.theme.color === 'dark' ? 'bg-black' : this.data.theme.color === 'texture' ? 'bg-gray-600' : 'bg-white'
+        }`}
       >
-        <div class={`bg-[#070930] w-2/5 rounded-lg  px-[50px] pb-[63px] pt-[30px]`}>
-          <div class="flex flex-col gap-20 ">
-            <div class="flex items-center gap-2.5">
-              <span class="font-medium text-white">Add Company Logo</span>
-            </div>
-            <div class="max-w-[280px]">
-              <h1 class="text-3xl font-medium text-white outline-none relative" contentEditable={true}>
-                Start your journey with us. <img class="pointer absolute left-[105px] top-[50px]" src={edit} alt="" />
-              </h1>
+        {this.data.viewPort.fullScreen || this.data.viewPort.desktop ? (
+          <div class={`bg-[#070930] min-w-[424px] rounded-lg   px-[50px] pb-[63px] pt-[30px]`}>
+            <div class="flex flex-col gap-20 ">
+              <div class="flex items-center gap-2.5">
+                <span class="font-medium text-white">Add Company Logo</span>
+              </div>
+              <div class="max-w-[280px]">
+                <h1 class="text-3xl font-medium text-white outline-none image relative" contentEditable={true}>
+                  Start your journey with us.
+                </h1>
 
-              <span class="text-white text-sm outline-none relative" contentEditable={true}>
-                Discover the world’s best community of freelancers ad business owners. <img class="pointer absolute right-[-20px] top-[25px]" src={edit} alt="" />
-              </span>
-            </div>
-            <div class="flex flex-col flex-end max-w-[390px]">
-              <span class="text-[#1890FF] text-end text-xs ">View Custom Layouts</span>
-              <div class="border-text-none rounded-2xl bg-[#252BA9] flex flex-col gap-6 p-5">
-                <span class="text-white text-xs">
-                  "This SAAS product has made my life so much easier! It's intuitive, efficient, and has all the features I need to run my business smoothly."
+                <span class="text-white text-sm outline-none image relative" contentEditable={true}>
+                  Discover the world’s best community of freelancers ad business owners.
                 </span>
-                <div class="flex gap-2 items-center">
-                  <img src={avatar} alt="" />
-                  <div>
-                    <h4 class="text-white text-sm">Arun Raj</h4>
-                    <span class="text-white text-xs">Senior Product Manger @ABSoftwares</span>
+              </div>
+              <div class="flex flex-col flex-end max-w-[390px]">
+                <div class="flex flex-end gap-1">
+                  <img src={starLogo} alt="" />
+                  <span class="text-[#1890FF]  text-xs ">View Custom Layouts</span>
+                </div>
+
+                <div class="border-text-none rounded-2xl bg-[#252BA9] flex flex-col gap-6 p-5">
+                  <span class="text-white text-xs">
+                    "This SAAS product has made my life so much easier! It's intuitive, efficient, and has all the features I need to run my business smoothly."
+                  </span>
+                  <div class="flex gap-2 items-center">
+                    <div>
+                      <h4 class="text-white text-sm">Arun Raj</h4>
+                      <span class="text-white text-xs">Senior Product Manger @ABSoftwares</span>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        ) : null}
+        <div
+          style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}` }}
+          class={`flex rounded-lg p-5 flex-col my-20 gap-10 ${this.data.viewPort.tablet ? 'w-[768px]' : null} ${this.data.viewPort.mobile ? 'w-[375px] ml-8 mr-8' : 'ml-20 mr-14 '} ${
+            this.data.viewPort.fullScreen || this.data.viewPort.desktop ? 'w-3/5' : null
+          } `}
+        >
+          <div class="flex  gap-[35px] flex-col">
+            {this.data.viewPort.mobile && (
+              <div class="border items-center px-2 self-center flex flex-col gap-2 rounded-[52px] w-fit py-4">
+                <img class="h-5 w-5" src={addLogo} alt="" />
+                <span>Add Logo</span>
+              </div>
+            )}
 
-        <div class="flex w-3/5 flex-col pl-20 pr-14 py-20 gap-10 ">
-          <div class="flex flex-col">
             <div class="flex items-center gap-1.5">
-              <h3 class={`text-xl font-medium ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'}`} contentEditable={false}>
+              <h3 class={`text-xl font-medium  text-black `} contentEditable={true}>
                 Welcome to Company Name!
               </h3>
-              <img src={edit} alt="" />
             </div>
           </div>
 
@@ -86,7 +104,7 @@ export class FormComponent {
             <div class={`flex gap-8 ${this.data.buttons.socialButtons.position.top ? 'flex-col-reverse' : 'flex-col'}`}>
               <div class={`flex flex-col gap-7`}>
                 <div class="flex flex-col gap-2">
-                  <label class={`${this.data.theme.color === 'light' ? 'text-gray-600' : 'text-white'} `} htmlFor="">
+                  <label class={`text-black`} htmlFor="">
                     Email
                   </label>
                   <input
@@ -96,10 +114,9 @@ export class FormComponent {
                     placeholder="Enter your email"
                     type="text"
                   />
-                  {!this.email.includes('@') && this.email.length !==0 && <div >please enter valid email</div>}
                 </div>
                 <div class="flex flex-col gap-2">
-                  <label class={`${this.data.theme.color === 'light' ? 'text-gray-600' : 'text-white'} rounded-sm text-sm`} htmlFor="">
+                  <label class={`text-black rounded-sm text-sm`} htmlFor="">
                     Password
                   </label>
                   <input class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm text-sm`} placeholder="Enter your password" type="password" />
@@ -116,13 +133,13 @@ export class FormComponent {
                   Continue
                 </button>
                 <div class="flex flex-col gap-1">
-                  <span class={`text-xs text-gray-600 ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'}`}>
+                  <span class={`text-xs text-gray-600 text-black`}>
                     By continuing, you agree to the{' '}
-                    <a href="/" class="text-blue-600">
+                    <a href="/" style={{ color: this.data.colors.primary }}>
                       Terms of Service
                     </a>{' '}
                     and{' '}
-                    <a class="text-blue-600" href="/">
+                    <a style={{ color: this.data.colors.primary }} href="/">
                       Privacy Policy
                     </a>
                   </span>
@@ -131,24 +148,34 @@ export class FormComponent {
               <div class={`flex gap-9 ${this.data.buttons.socialButtons.position.top ? 'flex-col-reverse' : 'flex-col'}`}>
                 <div class="flex justify-between items-center gap-2">
                   <hr class="h-px w-full bg-gray-300" />{' '}
-                  <div class={`text-xs w-full text-gray-600 text-center ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'} `}>OR SIGNUP WITH</div>{' '}
+                  <div class={`text-xs w-full text-gray-600 text-center text-black `}>OR SIGNUP WITH</div>{' '}
                   <hr class="h-px w-full bg-gray-300" />
                 </div>
-                <div class="flex gap-3 items-center">
+                <div class={`flex gap-3  ${this.data.viewPort.mobile && 'flex-wrap'} items-center`}>
                   {buttonData.map((data: any, index: number) => {
                     return (
-                      <button
+                      <div
                         style={{
                           color: `${this.data.buttons.socialButtons.fontColor}`,
                           backgroundColor: `${this.data.buttons.socialButtons.backgroundColor}`,
                           fontWeight: `${this.data.buttons.socialButtons.fontWeight}`,
                           borderRadius: `${this.data.buttons.socialButtons.borderRadius}px`,
                         }}
-                        class={`border w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md items-center text-${this.data.buttons.socialButtons.fontSize}`}
+                        class={` gap-3 ${
+                          this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && buttonData.slice(-1)[0].buttonText === data.buttonText
+                            ? 'border w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md items-center '
+                            : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'
+                            ? 'border w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md items-center '
+                            : null
+                        }`}
                       >
                         <img class="w-[18px] h-[18px]" src={data.icon} alt="" />{' '}
-                        {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && index === 3 ? data.buttonText : null}
-                      </button>
+                        {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && index === 3 ? (
+                          <span class={ ` text-${this.data.buttons.socialButtons.fontSize}`}>{data.buttonText}</span>
+                        ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' ? (
+                          <span class={ ` text-${this.data.buttons.socialButtons.fontSize}`}>{data.buttonText}</span>
+                        ) : null}
+                      </div>
                     );
                   })}
                 </div>
@@ -156,8 +183,8 @@ export class FormComponent {
             </div>
 
             <div class="flex items-center justify-center gap-0.5">
-              <span class={`text-sm ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'} `}>Already have an account?</span>
-              <a href="/" class="text-sm text-blue-600">
+              <span class={`text-sm text-black `}>Already have an account?</span>
+              <a style={{ color: this.data.colors.primary }} href="/">
                 Log In
               </a>
             </div>

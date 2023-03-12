@@ -1,5 +1,5 @@
 import React from "react";
-import { StoreContext } from "../../../state/signUpState";
+import { StoreContext } from "../../../../state/signUpState";
 const Theme = () => {
   const { signUpState }:any = React.useContext(StoreContext)
   const themeBox = [
@@ -24,7 +24,7 @@ const Theme = () => {
     signUpState.setState({ ...signUpState.state, theme: (signUpState.state.theme.color = e.target.value) });
   }
   return (
-    <div className="flex gap-2 items-center">
+    <div className="flex p-5 gap-2 items-center">
       {themeBox.map((data: any) => {
         return (
           <div key={data.value}>

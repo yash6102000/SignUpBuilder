@@ -5,7 +5,8 @@ import  { MenuProps,Menu } from 'antd';
 import Theme from './styling/theme';
 import "./sidebar.css"
 import ButtonStyling from './styling/ButtonStyling';
-import Colors from './styling/colors';
+import Colors from './styling/Colors';
+import SignUpBox from './styling/SignUpBox';
 
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -30,7 +31,7 @@ function getItem(
 
 
 // submenu keys of first level
-const rootSubmenuKeys = ['sub1', 'sub2', 'sub4'];
+const rootSubmenuKeys = ['sub1', 'sub2','sub3'];
 
 const Sidebar = () => {
   const [openKeys, setOpenKeys] = useState(['sub1']);
@@ -45,8 +46,11 @@ const Sidebar = () => {
      getItem(<ButtonStyling/>, '2'),
      
     ]),
-    getItem('Colors', 'sub4','',[
+    getItem('Colors', 'sub3','',[
       getItem(<Colors/>, '3')
+    ]),
+    getItem('Sign Up Box', 'sub4','',[
+      getItem(<SignUpBox/>, '4')
     ]),
   ];
 
@@ -64,7 +68,7 @@ const Sidebar = () => {
       mode="inline"
       openKeys={openKeys}
       onOpenChange={onOpenChange}
-      style={{ width: "auto",padding:"20px" }}
+      style={{ width: "auto" }}
       items={items}
     />
   );

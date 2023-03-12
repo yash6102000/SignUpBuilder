@@ -1,36 +1,46 @@
 import React from "react";
-import { FormComponent, defineCustomElements } from "react-library";
-import Sidebar from "./components/sidebar/Sidebar";
+import {  defineCustomElements } from "react-library";
 import "./index.scss";
 import Header from "./Header";
 import StoreProvider from "../src/state/signUpState";
 import { StoreContext } from "../src/state/signUpState";
 import { createRoot } from "react-dom/client";
-import Container from "./Container";
 import { Tabs, TabsProps } from "antd";
-import SidebarTabs from "./components/sidebar/SidebarTabs";
-
+import TemplateContainer from "./components/templates/TemplatesContainer";
+import BuilderContainer from "./components/Builder/BuilderContainer";
+import { BrowserRouter} from "react-router-dom";
 //@ts-ignore
 defineCustomElements();
 const App = () => {
   const { signUpState }: any = React.useContext(StoreContext);
- 
+  const items: TabsProps["items"] = [
+    {
+      key: "1",
+      label: `Builder`,
+      children: <BuilderContainer />,
+    },
+    {
+      key: "2",
+      label: `Templates`,
+      children: <TemplateContainer />,
+    },
+  ];
+
   return (
+
+    <BrowserRouter>
+   
     <div className="flex flex-col">
-      <React.Suspense fallback="loading.....">
-        <Header />
-        <div className="flex">
-          <div className="flex flex-1">
-            <Container>
-              <FormComponent data={signUpState.state} />
-            </Container>
-          </div>
-          <div className="w-[355px]">
-          <SidebarTabs/>
-          </div>
-        </div>
-      </React.Suspense>
-    </div>
+        <React.Suspense fallback="loading.....">
+          <Header />
+          <Tabs
+            defaultActiveKey="1"
+            items={items}
+          />
+        </React.Suspense>
+      </div>
+    </BrowserRouter>
+
   );
 };
 const container = document.getElementById("app");

@@ -4,9 +4,10 @@ export const StoreContext = React.createContext(null);
 
 export default ({ children }: { children: any }) => {
   const [state, setState] = React.useState({
+    activeKey:["1","2"],
     viewPort: {
-      desktop: false,
-      "tablet:": false,
+      desktop: true,
+      tablet: false,
       mobile: false,
       fullScreen: false,
     },
@@ -45,8 +46,11 @@ export default ({ children }: { children: any }) => {
     },
     colors:{
       primary: "#2F54EB",
-      secondary: "#FFFFFF",
       error: "#DC6264",
+    },
+    signUpBox:{
+      backgroundColor: "#FFFFFF",
+      boxBorder: 0,
     }
   });
 

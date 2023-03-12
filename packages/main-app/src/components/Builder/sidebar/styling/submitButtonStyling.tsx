@@ -5,19 +5,19 @@ import {
   UpOutlined,
 } from "@ant-design/icons";
 import { useEffect, useState } from "react";
-import { StoreContext } from "../../../state/signUpState";
+import { StoreContext } from "../../../../state/signUpState";
 import "../sidebar.css";
 import { Select } from "antd";
-import { fontSize, fontWeight } from "../../../styleConfigs";
+import { fontSize, fontWeight } from "../../../../styleConfigs";
 import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
 import React from "react";
 const SubmitButtonStying = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   const [fontColor, setFontColor] = useState(
-    signUpState.state.buttons.submitButton.fontColor
+    signUpState.state.buttons.submitButton?.fontColor
   );
   const [bgColor, setBgColor] = useState(
-    signUpState.state.buttons.submitButton.backgroundColor
+    signUpState.state.buttons.submitButton?.backgroundColor
   );
   const [color1, setColorFont] = useState<AnyColorFormat>({
     hex: "#FFFFFF",

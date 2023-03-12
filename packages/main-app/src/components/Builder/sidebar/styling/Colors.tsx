@@ -1,6 +1,6 @@
 import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
 import React, { useEffect, useState } from "react";
-import { StoreContext } from "../../../state/signUpState";
+import { StoreContext } from "../../../../state/signUpState";
 
 const Colors = () => {
   const { signUpState }: any = React.useContext(StoreContext);
@@ -24,22 +24,22 @@ const Colors = () => {
   useEffect(() => {
     signUpState.setState({
       ...signUpState.state,
-      buttons: {
+      colors: {
         ...signUpState.state.colors,
-        primary: primaryColor,
+        primary:signUpState.state.colors.
+        primary =primaryColor,
       },
     });
     signUpState.setState({
       ...signUpState.state,
-      buttons: {
+      colors: {
         ...signUpState.state.colors,
         error:errorColor,
       },
     });
   }, [primaryColor, setPrimaryColor, errorColor, setErrorColor]);
-  console.log(signUpState.state.colors,'signUpState.state.colors')
   return (
-    <div>
+    <div className="p-5">
       <div className="flex justify-between items-center">
         <span className="text-xs text-gray-600">Primary Color</span>
         <div className="flex items-center gap-2">

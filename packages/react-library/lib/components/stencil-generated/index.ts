@@ -11,3 +11,4 @@ defineCustomElements();
 export const ContainerWrapper = /*@__PURE__*/createReactComponent<JSX.ContainerWrapper, HTMLContainerWrapperElement>('container-wrapper');
 export const FormComponent = /*@__PURE__*/createReactComponent<JSX.FormComponent, HTMLFormComponentElement>('form-component');
 export const MyComponent = /*@__PURE__*/createReactComponent<JSX.MyComponent, HTMLMyComponentElement>('my-component');
+export const SecondTemplate = /*@__PURE__*/createReactComponent<JSX.SecondTemplate, HTMLSecondTemplateElement>('second-template');

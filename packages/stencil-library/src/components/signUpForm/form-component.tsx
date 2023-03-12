@@ -4,7 +4,7 @@ import googleIcon from '../../googleIcon.svg';
 import addLogo from '../../addLogo.svg';
 import starLogo from '../../star.svg';
 import avtar from '../../Avatar.svg';
-import addCircleOutline from '../../AddCircleOutline.svg'
+import addCircleOutline from '../../AddCircleOutline.svg';
 //@ts-ignore
 @Component({
   tag: 'form-component',
@@ -38,8 +38,9 @@ export class FormComponent {
         icon: googleIcon,
       },
     ];
-    console.log(this.data.logoImage, 'this.data.signUpBox.backgroundColor');
-
+    console.log(this.data.buttons.socialButtons.buttonState, 'this.data.signUpBox.backgroundColor');
+    const socialButtonState = this.data.buttons.socialButtons.buttonState;
+    const submitButtonState=this.data.buttons.submitButton.buttonState
     return (
       <div
         class={`flex  rounded-xl ${this.data.viewPort.fullScreen && 'w-fit'}  border-text-[#8C8C8C] border ${
@@ -68,8 +69,8 @@ export class FormComponent {
                   Discover the world’s best community of freelancers ad business owners.
                 </span>
               </div>
-              <div class="flex flex-col flex-end max-w-[390px]">
-                <div class="flex flex-end gap-1">
+              <div class="flex flex-col gap-1 max-w-[390px]">
+                <div class="flex justify-end  gap-1">
                   <img src={starLogo} alt="" />
                   <span class="text-[#1890FF]  text-xs ">View Custom Layouts</span>
                 </div>
@@ -140,12 +141,14 @@ export class FormComponent {
                 </div>
                 <button
                   style={{
-                    color: `${this.data.buttons.submitButton.fontColor}`,
-                    backgroundColor: `${this.data.buttons.submitButton.backgroundColor}`,
+                    color: `${submitButtonState === 'Disabled State' ? '#00000040' : this.data.buttons.submitButton.fontColor}`,
+                    backgroundColor: `${submitButtonState === 'Disabled State' ? '#0000000a' : this.data.buttons.submitButton.backgroundColor}`,
                     fontWeight: `${this.data.buttons.submitButton.fontWeight}`,
                     borderRadius: `${this.data.buttons.submitButton.borderRadius}px`,
                   }}
-                  class={`bg-[#070930]  text-${this.data.buttons.submitButton.fontSize} rounded-sm py-2 text-center items-center text-white`}
+                  class={`bg-[#070930] ${submitButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'} ${
+                    submitButtonState === 'Hover State' && 'border-[#4096ff]'
+                  }    text-${this.data.buttons.submitButton.fontSize} rounded-sm py-2 text-center items-center text-white`}
                 >
                   Continue
                 </button>
@@ -173,16 +176,19 @@ export class FormComponent {
                     return (
                       <div
                         style={{
-                          color: `${this.data.buttons.socialButtons.fontColor}`,
-                          backgroundColor: `${this.data.buttons.socialButtons.backgroundColor}`,
+                          color: `${socialButtonState === 'Disabled State' ? '#00000040' : this.data.buttons.socialButtons.fontColor}`,
+
+                          backgroundColor: `${socialButtonState === 'Disabled State' ? '#0000000a' : this.data.buttons.socialButtons.backgroundColor}`,
                           fontWeight: `${this.data.buttons.socialButtons.fontWeight}`,
                           borderRadius: `${this.data.buttons.socialButtons.borderRadius}px`,
                         }}
-                        class={` gap-3 ${
+                        class={`border  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
+                          socialButtonState === 'Hover State' && 'border-[#4096ff]'
+                        } gap-3 ${
                           this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && buttonData.slice(-1)[0].buttonText === data.buttonText
-                            ? 'border w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md items-center '
+                            ? ' w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md '
                             : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'
-                            ? 'border py-2 flex items-center px-9 justify-center w-fit gap-1.5 text-center shadow-md items-center '
+                            ? ' py-2 flex items-center px-9 justify-center w-fit gap-1.5 text-center shadow-md'
                             : null
                         }`}
                       >

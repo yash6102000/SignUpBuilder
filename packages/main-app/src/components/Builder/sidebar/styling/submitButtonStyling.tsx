@@ -7,7 +7,7 @@ import {
 import { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import "../sidebar.css";
-import { Select } from "antd";
+import { Select, SelectProps } from "antd";
 import { fontSize, fontWeight } from "../../../../styleConfigs";
 import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
 import React from "react";
@@ -100,7 +100,37 @@ const SubmitButtonStying = () => {
       },
     });
   }, [fontColor, setFontColor, bgColor, setBgColor]);
-
+  const handleChange = (value: string | string[]) => {
+    signUpState.setState({
+      ...signUpState.state,
+      buttons: {
+        ...signUpState.state.buttons,
+        submitButton: {
+          ...signUpState.state.buttons.submitButton,
+          buttonState:
+            (signUpState.state.buttons.submitButton.buttonState = value),
+        },
+      },
+    });
+  };
+  const options: SelectProps["options"] = [
+    {
+      label: "default State",
+      value: "Default State",
+    },
+    {
+      label: "hover State",
+      value: "Hover State",
+    },
+    {
+      label: "active State",
+      value: "Active State",
+    },
+    {
+      label: "disabled State",
+      value: "Disabled State",
+    },
+  ];
   const [currentAccordian, setCurrentAccordian] = useState(-1);
   return (
     <div className="flex py-5  border-t-2 border-dashed border-[#D9D9D9] flex-col gap-5">
@@ -135,6 +165,15 @@ const SubmitButtonStying = () => {
         <div className="flex flex-col gap-2">
           <h4 className="text-black font-xs">Submit Button Styling</h4>
           <div className="flex flex-col gap-4">
+          <div>
+              {" "}
+              <Select
+                defaultValue="Default State"
+                onChange={handleChange}
+                style={{ width: "100%" }}
+                options={options}
+              />
+            </div>
             <div className="flex justify-between items-center">
               <span className="text-xs  text-gray-600">Font Size</span>
               <Select

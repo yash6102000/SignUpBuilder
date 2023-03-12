@@ -131,7 +131,17 @@ const SocialButtonStyling = () => {
   ];
 
   const handleChange = (value: string | string[]) => {
-    console.log(`Selected: ${value}`);
+    signUpState.setState({
+      ...signUpState.state,
+      buttons: {
+        ...signUpState.state.buttons,
+        socialButtons: {
+          ...signUpState.state.buttons.socialButtons,
+          buttonState:
+            (signUpState.state.buttons.socialButtons.buttonState = value),
+        },
+      },
+    });
   };
   const [currentAccordian, setCurrentAccordian] = useState(1);
   return (
@@ -269,7 +279,7 @@ const SocialButtonStyling = () => {
                         },
                       })
                     }
-                    className={`flex gap-4 h-[88px] relative justify-center items-center  w-24 flex p-1 items-start border border-gray-300 rounded`}
+                    className={`flex gap-4 h-[88px] relative justify-center items-center  w-24 p-1  border border-gray-300 rounded`}
                   >
                     <input
                     className="absolute top-2 left-2"

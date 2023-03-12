@@ -27,6 +27,7 @@ export default ({ children }: { children: any }) => {
         fontColor: "#000000",
         backgroundColor: "#FFFFFF",
         borderRadius: 0,
+        buttonState:'Default State'
       },
       submitButton: {
         position: {
@@ -41,6 +42,7 @@ export default ({ children }: { children: any }) => {
         fontColor: "#FFFFFF",
         backgroundColor: "#070930",
         borderRadius: 0,
+        buttonState:'Default State'
       },
     },
     colors:{

@@ -57,11 +57,15 @@ export default ({ children }: { children: any }) => {
     logoImage:null,
     inputField:{
       fieldState: "",
+      fontSize: "sm",
       fontWeight: "500",
       fontColor: "#000000",
-      backgroundColor: "#FFFFFF",
+      backgroundColor: "#FFFFFF" ,
       borderRadius: 0,
-      boxBorder: 0
+      boxBorder: 2,
+      labelFontSize: "sm",
+      labelFontWeight: "400",
+      labelFontColor: "#00000099",
     }
   });
 

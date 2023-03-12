@@ -180,7 +180,6 @@ const SubmitButtonStying = () => {
               className="w-2/4"
                 defaultValue="sm"
                 onChange={handleFontSize}
-                style={{ width: 120 }}
                 options={fontSize}
               />
             </div>
@@ -190,7 +189,6 @@ const SubmitButtonStying = () => {
               className="w-2/4"
                 defaultValue="semibold"
                 onChange={handleFontWeight}
-                style={{ width: 120 }}
                 options={fontWeight}
               />
             </div>
@@ -210,7 +208,7 @@ const SubmitButtonStying = () => {
               </div>
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4 text-gray-600">Backgroud Color</span>
+              <span className="text-xs w-2/4 text-gray-600">Background Color</span>
               <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{

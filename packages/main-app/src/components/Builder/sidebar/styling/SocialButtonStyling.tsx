@@ -319,7 +319,6 @@ const SocialButtonStyling = () => {
               className="w-2/4"
                 defaultValue="sm"
                 onChange={handleFontSize}
-                style={{ width: 120 }}
                 options={fontSize}
               />
             </div>
@@ -329,7 +328,6 @@ const SocialButtonStyling = () => {
               className="w-2/4"
                 defaultValue="semibold"
                 onChange={handleFontWeight}
-                style={{ width: 120 }}
                 options={fontWeight}
               />
             </div>
@@ -349,7 +347,7 @@ const SocialButtonStyling = () => {
               </div>
             </div>
             <div className="flex  items-center">
-              <span className="text-xs text-gray-600 w-2/4">Backgroud Color</span>
+              <span className="text-xs text-gray-600 w-2/4">Background Color</span>
               <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{

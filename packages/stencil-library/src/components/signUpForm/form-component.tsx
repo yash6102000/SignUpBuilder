@@ -41,7 +41,7 @@ export class FormComponent {
 
     const socialButtonState = this.data.buttons.socialButtons?.buttonState;
     const submitButtonState = this.data.buttons.submitButton?.buttonState;
-    console.log(this.data.inputField.fieldState,'l')
+    console.log(this.data.inputField.fieldState, 'l');
     return (
       <div
         class={`flex  rounded-xl ${this.data.viewPort.fullScreen && 'w-fit'}  border-text-[#8C8C8C] border ${
@@ -126,22 +126,54 @@ export class FormComponent {
             <div class={`flex gap-8 ${this.data.buttons.socialButtons.position.top ? 'flex-col-reverse' : 'flex-col'}`}>
               <div class={`flex flex-col gap-7`}>
                 <div class="flex flex-col gap-2">
-                  <label class={`${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '}`} htmlFor="">
+                  <label
+                    class={` text-${this.data.inputField.labelFontSize}`}
+                    style={{
+                      color: `${this.data.inputField.labelFontColor}`,
+                      fontWeight: `${this.data.inputField.labelFontWeight}`,
+                    }}
+                    htmlFor=""
+                  >
                     Email
                   </label>
                   <input
+                    style={{
+                      color: `${this.data.inputField.fontColor}`,
+                      backgroundColor: `${this.data.inputField.backgroundColor}`,
+                      fontWeight: `${this.data.inputField.fontWeight}`,
+                      borderWidth: `${this.data.inputField.boxBorder}px`,
+                      borderRadius: `${this.data.inputField.borderRadius}px`,
+                    }}
                     value={this.email}
                     onInput={event => this.handleChange(event)}
-                    class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm text-sm`}
+                    class={`border-[#D9D9D9] border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
                     placeholder={`${this.data.inputField.fieldState}`}
                     type="text"
                   />
                 </div>
                 <div class="flex flex-col gap-2">
-                  <label class={`${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} rounded-sm text-sm`} htmlFor="">
+                  <label
+                    class={` text-${this.data.inputField.labelFontSize}`}
+                    style={{
+                      color: `${this.data.inputField.labelFontColor}`,
+                      fontWeight: `${this.data.inputField.labelFontWeight}`,
+                    }}
+                    htmlFor=""
+                  >
                     Password
                   </label>
-                  <input class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm text-sm`} placeholder="Enter your password" type="password" />
+                  <input
+                    style={{
+                      color: `${this.data.inputField.fontColor}`,
+                      backgroundColor: `${this.data.inputField.backgroundColor}`,
+                      fontWeight: `${this.data.inputField.fontWeight}`,
+                      borderWidth: `${this.data.inputField.boxBorder}px`,
+                      borderRadius: `${this.data.inputField.borderRadius}px`,
+                    }}
+                    class={`border-[#D9D9D9] border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
+                    placeholder="Enter your password"
+                    type="password"
+                  />
                 </div>
                 <button
                   style={{
@@ -196,10 +228,10 @@ export class FormComponent {
                             : null
                         }`}
                       >
-                        <img class="w-[18px] h-[18px]" src={data.icon} alt="" />{' '}
+                        <img class="w-[18px] h-[18px] max-w-none" src={data.icon} alt="" />{' '}
                         {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && index === 3 ? (
                           <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.buttonText}</span>
-                        ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' ? (
+                        ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' &&buttonData.length<3 ? (
                           <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.buttonText}</span>
                         ) : null}
                       </div>

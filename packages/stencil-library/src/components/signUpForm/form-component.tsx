@@ -38,9 +38,10 @@ export class FormComponent {
         icon: googleIcon,
       },
     ];
-    console.log(this.data.buttons.socialButtons.buttonState, 'this.data.signUpBox.backgroundColor');
-    const socialButtonState = this.data.buttons.socialButtons.buttonState;
-    const submitButtonState=this.data.buttons.submitButton.buttonState
+
+    const socialButtonState = this.data.buttons.socialButtons?.buttonState;
+    const submitButtonState = this.data.buttons.submitButton?.buttonState;
+    console.log(this.data.inputField.fieldState,'l')
     return (
       <div
         class={`flex  rounded-xl ${this.data.viewPort.fullScreen && 'w-fit'}  border-text-[#8C8C8C] border ${
@@ -48,27 +49,30 @@ export class FormComponent {
         }`}
       >
         {this.data.viewPort.fullScreen || this.data.viewPort.desktop ? (
-          <div class={`bg-[#070930] min-w-[424px] rounded-lg   px-[50px] pb-[63px] pt-[30px]`}>
-            <div class="flex flex-col gap-20 ">
-              <div>
-                {this.data.logoImage ? (
-                  <img class="max-w-[100px]" src={this.data.logoImage} alt="" />
-                ) : (
-                  <div class="flex items-center gap-2">
-                    <img src={addCircleOutline} alt="" />
-                    <span class="font-medium text-white">Add Company Logo</span>
-                  </div>
-                )}
-              </div>
-              <div class="max-w-[280px]">
-                <h1 class="text-3xl font-medium text-white outline-none image relative" contentEditable={true}>
-                  Start your journey with us.
-                </h1>
+          <div class={`bg-[#070930] min-w-[424px] rounded-lg  flex px-[50px] pb-[80px] pt-[30px]`}>
+            <div class="flex justify-between flex-col gap-20 ">
+              <div class="flex flex-col gap-20 ">
+                <div>
+                  {this.data.logoImage ? (
+                    <img class="max-w-[100px]" src={this.data.logoImage} alt="" />
+                  ) : (
+                    <div class="flex items-center gap-2">
+                      <img src={addCircleOutline} alt="" />
+                      <span class="font-medium text-white">Add Company Logo</span>
+                    </div>
+                  )}
+                </div>
+                <div class="max-w-[280px]">
+                  <h1 class="text-3xl font-medium text-white outline-none image relative" contentEditable={true}>
+                    Start your journey with us.
+                  </h1>
 
-                <span class="text-white text-sm outline-none image relative" contentEditable={true}>
-                  Discover the world’s best community of freelancers ad business owners.
-                </span>
+                  <span class="text-white text-sm outline-none image relative" contentEditable={true}>
+                    Discover the world’s best community of freelancers ad business owners.
+                  </span>
+                </div>
               </div>
+
               <div class="flex flex-col gap-1 max-w-[390px]">
                 <div class="flex justify-end  gap-1">
                   <img src={starLogo} alt="" />
@@ -93,7 +97,7 @@ export class FormComponent {
         ) : null}
         <div
           style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}`, borderWidth: `${this.data.signUpBox.boxBorder}px`, boxShadow: `${this.data.signUpBox.boxShadow}` }}
-          class={`flex rounded-lg p-5 flex-col my-20 gap-10 ${this.data.viewPort.tablet ? 'w-[480px]' : null} ${
+          class={`flex rounded-lg p-5 flex-col my-[60px] gap-10 ${this.data.viewPort.tablet ? 'w-[480px]' : null} ${
             this.data.viewPort.mobile ? 'w-[375px] ml-8 mr-8' : 'ml-10 mr-14 '
           } ${this.data.viewPort.fullScreen || this.data.viewPort.desktop ? 'w-3/5' : null} `}
         >
@@ -129,7 +133,7 @@ export class FormComponent {
                     value={this.email}
                     onInput={event => this.handleChange(event)}
                     class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm text-sm`}
-                    placeholder="Enter your email"
+                    placeholder={`${this.data.inputField.fieldState}`}
                     type="text"
                   />
                 </div>
@@ -182,13 +186,13 @@ export class FormComponent {
                           fontWeight: `${this.data.buttons.socialButtons.fontWeight}`,
                           borderRadius: `${this.data.buttons.socialButtons.borderRadius}px`,
                         }}
-                        class={`border  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
+                        class={`border px-9 py-2  shadow-md  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
                           socialButtonState === 'Hover State' && 'border-[#4096ff]'
                         } gap-3 ${
                           this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && buttonData.slice(-1)[0].buttonText === data.buttonText
-                            ? ' w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md '
+                            ? ' w-full flex items-center  justify-center gap-1.5 text-center  '
                             : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'
-                            ? ' py-2 flex items-center px-9 justify-center w-fit gap-1.5 text-center shadow-md'
+                            ? '  flex items-center justify-center w-fit gap-1.5 text-center '
                             : null
                         }`}
                       >

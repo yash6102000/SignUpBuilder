@@ -179,6 +179,7 @@ const Container = () => {
             path="template2"
             element={
               <SecondTemplate
+              className="self-center"
                 data={signUpState.state}
               />
             }

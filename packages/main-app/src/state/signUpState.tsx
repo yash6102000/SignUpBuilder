@@ -54,7 +54,15 @@ export default ({ children }: { children: any }) => {
       boxBorder: 0,
       boxShadow:''
     },
-    logoImage:null
+    logoImage:null,
+    inputField:{
+      fieldState: "",
+      fontWeight: "500",
+      fontColor: "#000000",
+      backgroundColor: "#FFFFFF",
+      borderRadius: 0,
+      boxBorder: 0
+    }
   });
 
   const store = {

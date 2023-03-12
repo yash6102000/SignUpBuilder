@@ -8,6 +8,7 @@ import ButtonStyling from './styling/ButtonStyling';
 import Colors from './styling/Colors';
 import SignUpBox from './styling/SignUpBox';
 import LogoImageStyling from './styling/LogoImageStyling';
+import InputFieldStyling from './styling/InputFieldStyling';
 
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -53,8 +54,11 @@ const Sidebar = () => {
     getItem('Colors', 'sub4','',[
       getItem(<Colors/>, '4')
     ]),
-    getItem('Sign Up Box', 'sub5','',[
-      getItem(<SignUpBox/>, '5')
+    getItem('Input Field', 'sub5','',[
+      getItem(<InputFieldStyling/>, '5')
+    ]),
+    getItem('Sign Up Box', 'sub6','',[
+      getItem(<SignUpBox/>, '6')
     ]),
    
 

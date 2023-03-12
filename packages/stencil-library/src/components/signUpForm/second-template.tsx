@@ -40,7 +40,7 @@ export class SecondTemplate {
           <div class={`flex  flex-col gap-10  p-3 `}>
             <div class="flex  gap-[35px] flex-col">
               <div class="flex justify-between items-center gap-1.5">
-                <h3 class={`text-xl font-medium image ${this.data.theme.color === 'light' ? 'text-black' : 'text-white'}`}>Stealth Saas</h3>
+                <h3 class={`text-xl font-medium image ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `}>Stealth Saas</h3>
                 <span class="cursor-pointer" style={{ color: this.data.colors.primary }}>
                   register
                 </span>
@@ -51,7 +51,7 @@ export class SecondTemplate {
               <div class={`flex gap-8 flex-col`}>
                 <div class={`flex flex-col gap-7`}>
                   <div class="flex flex-col gap-2">
-                    <label class={`${this.data.theme.color === 'light' ? 'text-gray-600' : 'text-white'} rounded-sm text-sm`} htmlFor="">
+                    <label class={` ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} rounded-sm text-sm`} htmlFor="">
                       Email
                     </label>
                     <input
@@ -63,7 +63,7 @@ export class SecondTemplate {
                     />
                   </div>
                   <div class="flex flex-col gap-2">
-                    <label class={`${this.data.theme.color === 'light' ? 'text-gray-600' : 'text-white'} rounded-sm text-sm`} htmlFor="">
+                    <label class={` ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} rounded-sm text-sm`} htmlFor="">
                       Password
                     </label>
                     <input class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm text-sm`} placeholder="Enter your password" type="password" />
@@ -101,9 +101,9 @@ export class SecondTemplate {
                           }}
                           class={` gap-3 ${
                             this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && buttonData.slice(-1)[0].buttonText === data.buttonText
-                              ? 'border w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md items-center '
+                              ? 'border w-full py-2 flex  px-9 justify-center gap-1.5 text-center shadow-md items-center '
                               : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'
-                              ? 'border py-2 flex items-center px-9 justify-center w-fit gap-1.5 text-center shadow-md items-center '
+                              ? 'border py-2 flex  px-9 justify-center w-fit gap-1.5 text-center shadow-md items-center '
                               : null
                           }`}
                         >
@@ -130,7 +130,7 @@ export class SecondTemplate {
           </div>
         </div>
         {this.data.viewPort.fullScreen || this.data.viewPort.desktop ? (
-          <div class={`flex bg-pink-400 flex-col py-20 gap-10 w-full justify-center items-center `}>
+          <div class={`flex bg-pink-400 flex-col py-20 gap-10 w-[400px] justify-center items-center `}>
             Stealth Saas
             
           </div>

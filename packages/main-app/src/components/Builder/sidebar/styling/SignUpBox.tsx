@@ -46,9 +46,9 @@ const SignUpBox = () => {
   console.log(signUpState.state.signUpBox.boxShadow ,'signUpState.state.signUpBox.boxShadow ')
   return (
     <div className="p-5 flex flex-col gap-4">
-      <div className="flex justify-between items-center">
-        <span className="text-xs text-gray-600">Background Color</span>
-        <div className="flex items-center gap-2">
+      <div className="flex  items-center">
+        <span className="text-xs text-gray-600 w-2/4">Background Color</span>
+        <div className="flex items-center gap-2 w-2/4">
           <Colorpicker
             blockStyles={{
               width: "24px",
@@ -61,9 +61,9 @@ const SignUpBox = () => {
           <span className="text-black">{bgColor}</span>
         </div>
       </div>
-      <div className="flex justify-between items-center">
-        <span className="text-xs text-gray-600">Box Border</span>
-        <div className="flex items-center gap-2">
+      <div className="flex  items-center">
+        <span className="text-xs text-gray-600 w-2/4">Box Border</span>
+        <div className="flex items-center w-2/4 gap-2">
           <div className="flex border border-[#D9D9D9] bg-white py-1.5 px-3 gap-6 items-center">
             <MinusOutlined
               className="border flex justify-center items-center rounded-[50px] h-5 w-5 bg-[#F0F5FF]"
@@ -101,9 +101,9 @@ const SignUpBox = () => {
         </div>
       </div>
 
-      <div className="flex justify-between items-center">
-        <span>Box Shadow</span>
-        <div className="flex items-center">
+      <div className="flex  items-center">
+        <span className="w-2/4">Box Shadow</span>
+        <div className="flex w-2/4 items-center">
           {boxShadowArray.map((data: any) => {
             return (
               <Button

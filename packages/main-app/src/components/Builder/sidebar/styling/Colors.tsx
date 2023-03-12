@@ -40,9 +40,9 @@ const Colors = () => {
   }, [primaryColor, setPrimaryColor, errorColor, setErrorColor]);
   return (
     <div className="p-5">
-      <div className="flex justify-between items-center">
-        <span className="text-xs text-gray-600">Primary Color</span>
-        <div className="flex items-center gap-2">
+      <div className="flex items-center">
+        <span className="text-xs text-gray-600 w-2/4">Primary Color</span>
+        <div className="flex items-center w-2/4 gap-2">
           <Colorpicker
             blockStyles={{
               width: "24px",
@@ -56,8 +56,8 @@ const Colors = () => {
         </div>
       </div>
       <div className="flex justify-between items-center">
-        <span className="text-xs text-gray-600">Error Color</span>
-        <div className="flex items-center gap-2">
+        <span className="text-xs text-gray-600 w-2/4">Error Color</span>
+        <div className="flex items-center w-2/4 gap-2">
           <Colorpicker
             blockStyles={{
               width: "24px",

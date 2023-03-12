@@ -174,27 +174,29 @@ const SubmitButtonStying = () => {
                 options={options}
               />
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-xs  text-gray-600">Font Size</span>
+            <div className="flex  items-center">
+              <span className="text-xs w-2/4 text-gray-600">Font Size</span>
               <Select
+              className="w-2/4"
                 defaultValue="sm"
                 onChange={handleFontSize}
                 style={{ width: 120 }}
                 options={fontSize}
               />
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-xs text-gray-600">Font Weight</span>
+            <div className="flex  items-center">
+              <span className="text-xs w-2/4 text-gray-600">Font Weight</span>
               <Select
+              className="w-2/4"
                 defaultValue="semibold"
                 onChange={handleFontWeight}
                 style={{ width: 120 }}
                 options={fontWeight}
               />
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-xs text-gray-600">Font Color</span>
-              <div className="flex items-center gap-2">
+            <div className="flex  items-center">
+              <span className="text-xs w-2/4 text-gray-600">Font Color</span>
+              <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{
                     width: "24px",
@@ -207,9 +209,9 @@ const SubmitButtonStying = () => {
                 <span className="text-black">{fontColor}</span>
               </div>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-xs text-gray-600">Backgroud Color</span>
-              <div className="flex items-center gap-2">
+            <div className="flex  items-center">
+              <span className="text-xs w-2/4 text-gray-600">Backgroud Color</span>
+              <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{
                     width: "24px",
@@ -222,9 +224,9 @@ const SubmitButtonStying = () => {
                 <span className="text-black">{bgColor}</span>
               </div>
             </div>
-            <div className="flex justify-between items-center">
-              <span className="text-xs text-gray-600">Border Radius</span>
-              <div className="flex items-center gap-2">
+            <div className="flex  items-center">
+              <span className="text-xs text-gray-600 w-2/4">Border Radius</span>
+              <div className="flex w-2/4 items-center gap-2">
                 <div className="flex border border-[#D9D9D9] bg-white py-1.5 px-3 gap-6 items-center">
                   <MinusOutlined
                     className="border flex justify-center items-center rounded-[50px] h-5 w-5 bg-[#F0F5FF]"

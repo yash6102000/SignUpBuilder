@@ -51,6 +51,7 @@ export default ({ children }: { children: any }) => {
     signUpBox:{
       backgroundColor: "#FFFFFF",
       boxBorder: 0,
+      boxShadow:''
     }
   });
 

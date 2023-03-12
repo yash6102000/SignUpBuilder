@@ -30,7 +30,7 @@ export class SecondTemplate {
       <div
         class={`  flex  rounded-xl  border-text-[#8C8C8C] border ${this.data.theme.color === 'dark' ? 'bg-black' : this.data.theme.color === 'texture' ? 'bg-gray-600' : 'bg-white'}`}
       >
-        <div  style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}` }}  class={`${this.data.viewPort.mobile ? 'w-[375px] px-6 py-6' : 'min-w-[400px] mx-28 my-20 '} rounded-lg `}>
+        <div  style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}`,borderWidth:`${this.data.signUpBox.boxBorder}px`,boxShadow:`${this.data.signUpBox.boxShadow}` }}  class={`${this.data.viewPort.mobile ? 'w-[375px] px-6 py-6' : 'min-w-[400px] mx-28 my-20 '} rounded-lg `}>
           <div class={`flex  flex-col gap-10  p-3 `}>
             <div class="flex  gap-[35px] flex-col">
               <div class="flex justify-between items-center gap-1.5">
@@ -83,7 +83,7 @@ export class SecondTemplate {
                   <div class="flex justify-between items-center gap-2">
                     <hr class="h-px w-full bg-gray-300" /> <div class={`text-xs w-full text-gray-600 text-center  `}>OR SIGNUP WITH</div> <hr class="h-px w-full bg-gray-300" />
                   </div>
-                  <div class={`flex gap-3 ${this.data.viewPort.mobile && 'flex-wrap'}  items-center`}>
+                  <div class={`flex gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'?"flex-wrap":null}   items-center`}>
                     {buttonData.map((data: any, index: number) => {
                       return (
                         <div
@@ -97,7 +97,7 @@ export class SecondTemplate {
                             this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && buttonData.slice(-1)[0].buttonText === data.buttonText
                               ? 'border w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md items-center '
                               : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'
-                              ? 'border w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md items-center '
+                              ? 'border py-2 flex items-center px-9 justify-center w-fit gap-1.5 text-center shadow-md items-center '
                               : null
                           }`}
                         >

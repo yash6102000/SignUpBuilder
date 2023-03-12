@@ -2,6 +2,7 @@ import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
 import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
+import { Button } from "antd";
 const SignUpBox = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   const [bgColor, setBgColor] = useState(
@@ -20,10 +21,29 @@ const SignUpBox = () => {
       ...signUpState.state,
       signUpBox: {
         ...signUpState.state.signUpBox,
-        backgroundColor: signUpState.state.signUpBox.backgroundColor=bgColor,
+        backgroundColor: (signUpState.state.signUpBox.backgroundColor =
+          bgColor),
       },
     });
   }, [bgColor, setBgColor]);
+
+  const boxShadowArray = [
+    {
+      label: "",
+      shadow: "",
+    },
+    { label: "S", shadow: "0px 2px 8px rgba(0, 0, 0, 0.15)" },
+    {
+      label: "M",
+      shadow:
+        "0px 3px 6px -4px rgba(0, 0, 0, 0.12), 0px 6px 16px rgba(0, 0, 0, 0.08), 0px 9px 28px 8px rgba(0, 0, 0, 0.05)",
+    },
+    {
+      label: "L",
+      shadow: "0px 6px 8px rgba(0, 0, 0, 0.15)",
+    },
+  ];
+  console.log(signUpState.state.signUpBox.boxShadow ,'signUpState.state.signUpBox.boxShadow ')
   return (
     <div className="p-5 flex flex-col gap-4">
       <div className="flex justify-between items-center">
@@ -78,6 +98,31 @@ const SignUpBox = () => {
               }
             />
           </div>
+        </div>
+      </div>
+
+      <div className="flex justify-between items-center">
+        <span>Box Shadow</span>
+        <div className="flex items-center">
+          {boxShadowArray.map((data: any) => {
+            return (
+              <Button
+                onClick={() =>
+                  signUpState.setState({
+                    ...signUpState.state,
+                    signUpBox: {
+                      ...signUpState.state.signUpBox,
+                      boxShadow: (signUpState.state.signUpBox.boxShadow =
+                        data.shadow),
+                    },
+                  })
+                }
+              >
+                {data.label}
+              </Button>
+            );
+          })}
+          <button></button>
         </div>
       </div>
     </div>

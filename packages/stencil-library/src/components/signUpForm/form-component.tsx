@@ -37,6 +37,7 @@ export class FormComponent {
       },
     ];
     console.log(this.data.buttons.socialButtons.fontSize, 'this.data.signUpBox.backgroundColor');
+  
     return (
       <div
         class={`flex  rounded-xl ${this.data.viewPort.fullScreen && 'w-fit'}  border-text-[#8C8C8C] border ${
@@ -80,10 +81,10 @@ export class FormComponent {
           </div>
         ) : null}
         <div
-          style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}` }}
-          class={`flex rounded-lg p-5 flex-col my-20 gap-10 ${this.data.viewPort.tablet ? 'w-[768px]' : null} ${this.data.viewPort.mobile ? 'w-[375px] ml-8 mr-8' : 'ml-20 mr-14 '} ${
-            this.data.viewPort.fullScreen || this.data.viewPort.desktop ? 'w-3/5' : null
-          } `}
+          style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}`,borderWidth:`${this.data.signUpBox.boxBorder}px`,boxShadow:`${this.data.signUpBox.boxShadow}` }}
+          class={`flex rounded-lg p-5 flex-col my-20 gap-10 ${this.data.viewPort.tablet ? 'w-[768px]' : null} ${
+            this.data.viewPort.mobile ? 'w-[375px] ml-8 mr-8' : 'ml-10 mr-14 '
+          } ${this.data.viewPort.fullScreen || this.data.viewPort.desktop ? 'w-3/5' : null} `}
         >
           <div class="flex  gap-[35px] flex-col">
             {this.data.viewPort.mobile && (
@@ -147,11 +148,10 @@ export class FormComponent {
               </div>
               <div class={`flex gap-9 ${this.data.buttons.socialButtons.position.top ? 'flex-col-reverse' : 'flex-col'}`}>
                 <div class="flex justify-between items-center gap-2">
-                  <hr class="h-px w-full bg-gray-300" />{' '}
-                  <div class={`text-xs w-full text-gray-600 text-center text-black `}>OR SIGNUP WITH</div>{' '}
+                  <hr class="h-px w-full bg-gray-300" /> <div class={`text-xs w-full text-gray-600 text-center text-black `}>OR SIGNUP WITH</div>{' '}
                   <hr class="h-px w-full bg-gray-300" />
                 </div>
-                <div class={`flex gap-3  ${this.data.viewPort.mobile && 'flex-wrap'} items-center`}>
+                <div class={`flex gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'?"flex-wrap":null} items-center`}>
                   {buttonData.map((data: any, index: number) => {
                     return (
                       <div
@@ -165,15 +165,15 @@ export class FormComponent {
                           this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && buttonData.slice(-1)[0].buttonText === data.buttonText
                             ? 'border w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md items-center '
                             : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'
-                            ? 'border w-full py-2 flex items-center px-9 justify-center gap-1.5 text-center shadow-md items-center '
+                            ? 'border py-2 flex items-center px-9 justify-center w-fit gap-1.5 text-center shadow-md items-center '
                             : null
                         }`}
                       >
                         <img class="w-[18px] h-[18px]" src={data.icon} alt="" />{' '}
                         {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && index === 3 ? (
-                          <span class={ ` text-${this.data.buttons.socialButtons.fontSize}`}>{data.buttonText}</span>
+                          <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.buttonText}</span>
                         ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' ? (
-                          <span class={ ` text-${this.data.buttons.socialButtons.fontSize}`}>{data.buttonText}</span>
+                          <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.buttonText}</span>
                         ) : null}
                       </div>
                     );

@@ -67,7 +67,11 @@ export default ({ children }: { children: any }) => {
       labelFontWeight: "400",
       labelFontColor: "#00000099",
     },
-    socialLoginButton:[]
+    socialLoginButton:[],
+    emailPassLogin:'Magic',
+    userApprovel:[],
+
+    
   });
 
   const store = {

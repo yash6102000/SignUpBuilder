@@ -1,9 +1,15 @@
 import React from "react"
 import SocialLogin from "./SocialLogins"
+import EmailPassLogin from "./EmailPassLogin"
+import UserApprovel from "./userApprovel"
 const LoginTypes=()=>{
     return(
-        <div className="p-6">
+        <div className="flex flex-col">
             <SocialLogin/>
+            <hr className="h-px w-full bg-[#0000000f]" />
+            <EmailPassLogin/>
+            <hr className="h-px w-full bg-[#0000000f]" />
+            <UserApprovel/>
         </div>
     )
 }

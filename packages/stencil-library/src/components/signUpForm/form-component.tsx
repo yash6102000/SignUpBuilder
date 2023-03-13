@@ -20,8 +20,6 @@ export class FormComponent {
   }
 
   render() {
-  
-  
     const socialButtonState = this.data.buttons.socialButtons?.buttonState;
     const submitButtonState = this.data.buttons.submitButton?.buttonState;
     console.log(this.data.inputField.fieldState, 'l');
@@ -115,6 +113,7 @@ export class FormComponent {
                       fontWeight: `${this.data.inputField.labelFontWeight}`,
                     }}
                     htmlFor=""
+                    
                   >
                     Email
                   </label>
@@ -129,34 +128,37 @@ export class FormComponent {
                     value={this.email}
                     onInput={event => this.handleChange(event)}
                     class={`border-[#D9D9D9] border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
-                    placeholder={`${this.data.inputField.fieldState}`}
+                    placeholder='Enter Your Email'
                     type="text"
                   />
                 </div>
-                <div class="flex flex-col gap-2">
-                  <label
-                    class={` text-${this.data.inputField.labelFontSize}`}
-                    style={{
-                      color: `${this.data.inputField.labelFontColor}`,
-                      fontWeight: `${this.data.inputField.labelFontWeight}`,
-                    }}
-                    htmlFor=""
-                  >
-                    Password
-                  </label>
-                  <input
-                    style={{
-                      color: `${this.data.inputField.fontColor}`,
-                      backgroundColor: `${this.data.inputField.backgroundColor}`,
-                      fontWeight: `${this.data.inputField.fontWeight}`,
-                      borderWidth: `${this.data.inputField.boxBorder}px`,
-                      borderRadius: `${this.data.inputField.borderRadius}px`,
-                    }}
-                    class={`border-[#D9D9D9] border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
-                    placeholder="Enter your password"
-                    type="password"
-                  />
-                </div>
+                {this.data.emailPassLogin === 'enablePasswordLogin' && (
+                  <div class="flex flex-col gap-2">
+                    <label
+                      class={` text-${this.data.inputField.labelFontSize}`}
+                      style={{
+                        color: `${this.data.inputField.labelFontColor}`,
+                        fontWeight: `${this.data.inputField.labelFontWeight}`,
+                      }}
+                      htmlFor=""
+                    >
+                      Password
+                    </label>
+                    <input
+                      style={{
+                        color: `${this.data.inputField.fontColor}`,
+                        backgroundColor: `${this.data.inputField.backgroundColor}`,
+                        fontWeight: `${this.data.inputField.fontWeight}`,
+                        borderWidth: `${this.data.inputField.boxBorder}px`,
+                        borderRadius: `${this.data.inputField.borderRadius}px`,
+                      }}
+                      class={`border-[#D9D9D9] border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
+                      placeholder="Enter your password"
+                      type="password"
+                    />
+                  </div>
+                )}
+
                 <button
                   style={{
                     color: `${submitButtonState === 'Disabled State' ? '#00000040' : this.data.buttons.submitButton.fontColor}`,
@@ -189,7 +191,7 @@ export class FormComponent {
                   <div class={`text-xs w-full text-gray-600 text-center ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `}>OR SIGNUP WITH</div>{' '}
                   <hr class="h-px w-full bg-gray-300" />
                 </div>
-                <div class={`flex flex-row-reverse gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && 'flex-wrap' } items-center`}>
+                <div class={`flex flex-row-reverse gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && 'flex-wrap'} items-center`}>
                   {this.data.socialLoginButton.map((data: any, index: number) => {
                     return (
                       <div
@@ -200,9 +202,9 @@ export class FormComponent {
                           fontWeight: `${this.data.buttons.socialButtons.fontWeight}`,
                           borderRadius: `${this.data.buttons.socialButtons.borderRadius}px`,
                         }}
-                        class={`border    flex items-center shadow-md  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
-                          socialButtonState === 'Hover State' && 'border-[#4096ff]'
-                        } gap-3 ${
+                        class={`border    flex items-center shadow-md  ${
+                          socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'
+                        }  ${socialButtonState === 'Hover State' && 'border-[#4096ff]'} gap-3 ${
                           this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && this.data.socialLoginButton.slice(-1)[0].label === data.label
                             ? ' w-full h-10 flex items-center px-9 py-2  justify-center gap-1.5 text-center  '
                             : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'
@@ -213,7 +215,7 @@ export class FormComponent {
                         <img src={googleIcon} alt="" />
                         {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && index === 3 ? (
                           <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
-                        ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' &&this.data.socialLoginButton.length<4 ? (
+                        ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && this.data.socialLoginButton.length < 4 ? (
                           <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
                         ) : null}
                       </div>

@@ -172,10 +172,7 @@ const Container = () => {
   useEffect(() => {
     fullScreenChange;
   });
-  console.log(
-    signUpState.state.viewPort.fullScreen,
-    "signUpState.state.viewPort.fullScreen"
-  );
+  
   return (
     <div className="w-full">
       <div className="bg-[#F0F5FF] py-7 flex px-5 flex-col gap-7">

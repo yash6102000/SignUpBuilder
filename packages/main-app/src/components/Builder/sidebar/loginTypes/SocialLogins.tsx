@@ -30,21 +30,18 @@ const SocialLogin = () => {
           : checked
       ),
 
-      console.log(filterData, "filterData")
     );
   };
   const filterData = checked.filter((data: any) => {
     return data.checked === true;
   });
   
-  console.log(filterData, "filterData");
   useEffect(() => {
     signUpState.setState({
       ...signUpState.state,
       socialLoginButton: (signUpState.state.socialLoginButton = filterData),
     });
   }, [checked]);
-  console.log(signUpState.state.socialLoginButton, "signUpState.state.socialLoginButton");
   return (
     <div className="flex p-6  flex-col gap-3">
       <div>

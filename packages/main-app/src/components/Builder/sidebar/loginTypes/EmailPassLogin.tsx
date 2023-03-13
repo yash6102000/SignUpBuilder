@@ -27,7 +27,6 @@ const EmailPassLogin = () => {
         emailPassLogin: (signUpState.state.emailPassLogin = e.target.value),
       })
   }
-  console.log(signUpState.state.emailPassLogin,'signUpState.state.emailPassLogin')
   return (
     <div className="flex gap-3 p-6  flex-col">
       <h2 className="text-sm font-medium text-[#000000d9]">

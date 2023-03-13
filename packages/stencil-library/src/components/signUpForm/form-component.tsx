@@ -22,7 +22,6 @@ export class FormComponent {
   render() {
     const socialButtonState = this.data.buttons.socialButtons?.buttonState;
     const submitButtonState = this.data.buttons.submitButton?.buttonState;
-    console.log(this.data.inputField.fieldState, 'l');
     return (
       <div
         class={`flex  rounded-xl   border-text-[#8C8C8C] border ${

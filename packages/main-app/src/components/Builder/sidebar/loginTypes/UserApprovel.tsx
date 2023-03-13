@@ -34,7 +34,6 @@ const UserApprovel = () => {
       return data.checked === true;
     });
     
-    console.log(filterData, "filterData");
     useEffect(() => {
       signUpState.setState({
         ...signUpState.state,

@@ -43,7 +43,6 @@ const SignUpBox = () => {
       shadow: "0px 6px 8px rgba(0, 0, 0, 0.15)",
     },
   ];
-  console.log(signUpState.state.signUpBox.boxShadow ,'signUpState.state.signUpBox.boxShadow ')
   return (
     <div className="p-5 flex flex-col gap-4">
       <div className="flex  items-center">

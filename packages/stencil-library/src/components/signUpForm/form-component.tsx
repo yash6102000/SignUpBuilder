@@ -32,7 +32,7 @@ export class FormComponent {
           <div class={`bg-[#070930] min-w-[424px] rounded-lg  px-[50px] pb-[80px] pt-[30px]`}>
             <div class="flex justify-between flex-col gap-20 ">
               <div class="flex flex-col gap-20 ">
-                <div>
+                <div class={`${this.data.logoAlignment==='center'?"flex justify-center":this.data.logoAlignment==='right'?"flex justify-end":null}`}>
                   {this.data.logoImage ? (
                     <img class="max-w-[100px]" src={this.data.logoImage} alt="" />
                   ) : (

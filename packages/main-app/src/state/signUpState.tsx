@@ -55,6 +55,7 @@ export default ({ children }: { children: any }) => {
       boxShadow:''
     },
     logoImage:null,
+    logoAlignment:'left',
     inputField:{
       fieldState: "",
       fontSize: "sm",

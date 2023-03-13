@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 // import googleIcon from '../../..'
-
+import { Icon } from '@iconify/react';
 const SocialLogin = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   // Add/Remove checked item from list
@@ -46,17 +46,17 @@ const SocialLogin = () => {
   }, [checked]);
   console.log(signUpState.state.socialLoginButton, "signUpState.state.socialLoginButton");
   return (
-    <div className="flex flex-col gap-2.5">
+    <div className="flex flex-col gap-3">
       <div>
-        <h2 className="text-sm font-medium">Social Logins (1/4)</h2>
+        <h2 className="text-sm font-medium text-[#000000d9]">Social Logins (1/4)</h2>
         <span className="text-xs font-normal text=[#00000073]">
           You can select only 4 social logins.
         </span>
       </div>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-5">
         {checked.map((data: any, index: number) => {
           return (
-            <div key={data.value} className="flex gap-3">
+            <div key={data.value} className="flex items-center gap-3">
               <input
                 className="w-4 h-4"
                 onChange={() => updateCheckStatus(index)}
@@ -65,8 +65,11 @@ const SocialLogin = () => {
                 type="checkbox"
                 name={data.value}
               />
-              {data.logo}
+              <div className="flex items-center gap-1">
+              <Icon className="w-5 h-5" icon={data.logo} />
               <span className="font-normal text-xs">{data.label}</span>
+              </div>
+        
             </div>
           );
         })}

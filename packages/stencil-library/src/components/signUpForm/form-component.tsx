@@ -27,7 +27,7 @@ export class FormComponent {
     console.log(this.data.inputField.fieldState, 'l');
     return (
       <div
-        class={`flex  rounded-xl ${this.data.viewPort.fullScreen && 'w-fit'}  border-text-[#8C8C8C] border ${
+        class={`flex  rounded-xl   border-text-[#8C8C8C] border ${
           this.data.theme.color === 'dark' ? 'bg-black' : this.data.theme.color === 'texture' ? 'bg-gray-600' : 'bg-white'
         }`}
       >
@@ -213,7 +213,7 @@ export class FormComponent {
                         <img src={googleIcon} alt="" />
                         {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && index === 3 ? (
                           <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
-                        ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' &&this.data.socialLoginButton.length<3 ? (
+                        ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' &&this.data.socialLoginButton.length<4 ? (
                           <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
                         ) : null}
                       </div>

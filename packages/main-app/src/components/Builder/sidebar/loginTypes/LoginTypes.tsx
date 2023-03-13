@@ -2,7 +2,7 @@ import React from "react"
 import SocialLogin from "./SocialLogins"
 const LoginTypes=()=>{
     return(
-        <div className="p-5">
+        <div className="p-6">
             <SocialLogin/>
         </div>
     )

@@ -14,7 +14,12 @@
 }
 
 .ant-menu-submenu-title{
-    font-size: 12px !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    padding: 22px !important;
+}
+.ant-menu-submenu-title:hover{
+background-color: transparent !important;
 }
 .ant-menu-submenu-inline{
     border-bottom: 1.5px solid rgba(0, 0, 0, 0.06) !important;
@@ -28,4 +33,7 @@
 }
 .ant-menu-item:hover{
     background-color: transparent !important;
+}
+.ant-checkbox-wrapper{
+margin-inline-start: 0 !important;
 }

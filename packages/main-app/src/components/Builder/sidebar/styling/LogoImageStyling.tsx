@@ -45,7 +45,7 @@ const LogoImageStyling = () => {
 
   return (
     <div className="flex items-center px-5  w-full">
-    <span className="w-2/4">Upload Logo</span>
+    <span className="text-xs w-2/4  text-[#00000073]">Upload Logo</span>
     <Upload
     className="w-2/4"
       action="https://www.mocky.io/v2/5cc8019d300000980a055e76"

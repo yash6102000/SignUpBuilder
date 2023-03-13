@@ -175,7 +175,7 @@ const SubmitButtonStying = () => {
               />
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4 text-gray-600">Font Size</span>
+              <span className="text-xs w-2/4  text-[#00000073]">Font Size</span>
               <Select
               className="w-2/4"
                 defaultValue="sm"
@@ -184,7 +184,7 @@ const SubmitButtonStying = () => {
               />
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4 text-gray-600">Font Weight</span>
+              <span className="text-xs w-2/4  text-[#00000073]">Font Weight</span>
               <Select
               className="w-2/4"
                 defaultValue="semibold"
@@ -193,7 +193,7 @@ const SubmitButtonStying = () => {
               />
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4 text-gray-600">Font Color</span>
+              <span className="text-xs w-2/4  text-[#00000073]">Font Color</span>
               <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{
@@ -208,7 +208,7 @@ const SubmitButtonStying = () => {
               </div>
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4 text-gray-600">Background Color</span>
+              <span className="text-xs w-2/4  text-[#00000073]">Background Color</span>
               <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{
@@ -223,7 +223,7 @@ const SubmitButtonStying = () => {
               </div>
             </div>
             <div className="flex  items-center">
-              <span className="text-xs text-gray-600 w-2/4">Border Radius</span>
+              <span className="text-xs w-2/4  text-[#00000073]">Border Radius</span>
               <div className="flex w-2/4 items-center gap-2">
                 <div className="flex border border-[#D9D9D9] bg-white py-1.5 px-3 gap-6 items-center">
                   <MinusOutlined

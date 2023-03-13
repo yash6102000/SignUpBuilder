@@ -6,7 +6,6 @@ import Theme from './styling/theme';
 import "./sidebar.css"
 import ButtonStyling from './styling/ButtonStyling';
 import Colors from './styling/Colors';
-import SignUpBox from './styling/SignUpBox';
 import LogoImageStyling from './styling/LogoImageStyling';
 import InputFieldStyling from './styling/InputFieldStyling';
 
@@ -57,10 +56,7 @@ const Sidebar = () => {
     getItem('Input Field', 'sub5','',[
       getItem(<InputFieldStyling/>, '5')
     ]),
-    getItem('Sign Up Box', 'sub6','',[
-      getItem(<SignUpBox/>, '6')
-    ]),
-   
+  
 
   ];
 
@@ -78,7 +74,7 @@ const Sidebar = () => {
       mode="inline"
       openKeys={openKeys}
       onOpenChange={onOpenChange}
-      style={{ width: "auto" }}
+      style={{ width: "auto" ,fontSize:'14px'}}
       items={items}
     />
   );

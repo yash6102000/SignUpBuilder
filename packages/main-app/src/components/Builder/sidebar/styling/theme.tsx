@@ -24,7 +24,7 @@ const Theme = () => {
     signUpState.setState({ ...signUpState.state, theme: (signUpState.state.theme.color = e.target.value) });
   }
   return (
-    <div className="flex p-5 gap-2 items-center">
+    <div className="flex px-5 gap-2 items-center">
       {themeBox.map((data: any) => {
         return (
           <div key={data.value}>
@@ -38,7 +38,7 @@ const Theme = () => {
                   },
                 })
               }
-              className={`flex gap-4 h-[88px]  w-24 flex p-1 items-start border border-gray-300 rounded ${data.bg}`}
+              className={`flex gap-4 h-[88px]  w-24  p-1 items-start border border-gray-300 rounded ${data.bg}`}
             >
               <input
                 type="radio"
@@ -48,7 +48,7 @@ const Theme = () => {
                 
               />
             </div>
-            <span className="text-gray-400">{data.text}</span>
+            <span className="text-xs  text-[#00000073]">{data.text}</span>
           </div>
         );
       })}

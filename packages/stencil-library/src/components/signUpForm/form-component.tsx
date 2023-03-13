@@ -96,9 +96,8 @@ export class FormComponent {
           </div>
         ) : null}
         <div
-          style={{ backgroundColor: `${this.data.signUpBox.backgroundColor}`, borderWidth: `${this.data.signUpBox.boxBorder}px`, boxShadow: `${this.data.signUpBox.boxShadow}` }}
-          class={`flex rounded-lg p-5 flex-col my-[60px] gap-10 ${this.data.viewPort.tablet ? 'w-[480px]' : null} ${
-            this.data.viewPort.mobile ? 'w-[375px] ml-8 mr-8' : 'ml-10 mr-14 '
+          class={`flex rounded-lg p-5 flex-col py-20 gap-10 ${this.data.viewPort.tablet ? 'w-[480px]' : null} ${
+            this.data.viewPort.mobile ? 'w-[375px] pl-8 pr-8' : 'pl-10 pr-14 '
           } ${this.data.viewPort.fullScreen || this.data.viewPort.desktop ? 'w-3/5' : null} `}
         >
           <div class="flex  gap-[35px] flex-col">
@@ -116,7 +115,7 @@ export class FormComponent {
             )}
 
             <div class="flex items-center gap-1.5">
-              <h3 class={`text-xl font-medium  ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `} contentEditable={true}>
+              <h3 class={`text-xl font-medium  ${this.data.theme.color === 'dark' ? 'text-white' : 'text-black'} `} contentEditable={true}>
                 Welcome to Company Name!
               </h3>
             </div>
@@ -189,7 +188,7 @@ export class FormComponent {
                   Continue
                 </button>
                 <div class="flex flex-col gap-1">
-                  <span class={`text-xs text-gray-600 ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '}`}>
+                  <span class={`text-xs text-gray-600 ${this.data.theme.color === 'dark' ? 'text-white' : 'text-black'}`}>
                     By continuing, you agree to the{' '}
                     <a href="/" style={{ color: this.data.colors.primary }}>
                       Terms of Service
@@ -242,7 +241,7 @@ export class FormComponent {
             </div>
 
             <div class="flex items-center justify-center gap-0.5">
-              <span class={`text-sm ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `}>Already have an account?</span>
+              <span class={`text-sm ${this.data.theme.color === 'dark' ? 'text-white' : 'text-black'} `}>Already have an account?</span>
               <a style={{ color: this.data.colors.primary }} href="/">
                 Log In
               </a>

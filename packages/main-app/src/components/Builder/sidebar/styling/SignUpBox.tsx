@@ -47,7 +47,7 @@ const SignUpBox = () => {
   return (
     <div className="p-5 flex flex-col gap-4">
       <div className="flex  items-center">
-        <span className="text-xs text-gray-600 w-2/4">Background Color</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Background Color</span>
         <div className="flex items-center gap-2 w-2/4">
           <Colorpicker
             blockStyles={{
@@ -62,7 +62,7 @@ const SignUpBox = () => {
         </div>
       </div>
       <div className="flex  items-center">
-        <span className="text-xs text-gray-600 w-2/4">Box Border</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Box Border</span>
         <div className="flex items-center w-2/4 gap-2">
           <div className="flex border border-[#D9D9D9] bg-white py-1.5 px-3 gap-6 items-center">
             <MinusOutlined
@@ -102,7 +102,7 @@ const SignUpBox = () => {
       </div>
 
       <div className="flex  items-center">
-        <span className="w-2/4">Box Shadow</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Box Shadow</span>
         <div className="flex w-2/4 items-center">
           {boxShadowArray.map((data: any) => {
             return (

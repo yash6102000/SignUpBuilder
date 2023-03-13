@@ -160,7 +160,7 @@ const SocialButtonStyling = () => {
           );
         }}
       >
-        <span className="text-xs text-black">Social Button Styling</span>
+        <span className="text-xs text-[#000000d9] font-medium">Social Button Styling</span>
 
         {currentAccordian === 1 ? (
           <UpOutlined className="text-black" />
@@ -176,7 +176,7 @@ const SocialButtonStyling = () => {
         }
       >
         <div className="flex justify-between w-full items-center">
-          <span className="text-xs  text-black">Position</span>
+          <span className="text-xs text-[#000000d9] font-medium">Position</span>
 
           <div className={`flex  gap-2 items-center`}>
             <VerticalAlignTopOutlined
@@ -259,6 +259,7 @@ const SocialButtonStyling = () => {
         </div>
         {/* {Layout} */}
         <div className="flex flex-col gap-2">
+          <span className="text-xs text-[#000000d9] font-medium">Layout</span>
           <div className="flex gap-2 items-center">
             {themeBox.map((data: any) => {
               return (
@@ -302,7 +303,7 @@ const SocialButtonStyling = () => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <h4 className="text-black font-xs">Styling</h4>
+          <h4 className="text-xs text-[#000000d9] font-medium">Styling</h4>
           <div className="flex  flex-col gap-4">
             <div>
               {" "}
@@ -314,7 +315,7 @@ const SocialButtonStyling = () => {
               />
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-gray-600">Font Size</span>
+              <span className="text-xs w-2/4  text-[#00000073]">Font Size</span>
               <Select
               className="w-2/4"
                 defaultValue="sm"
@@ -323,7 +324,7 @@ const SocialButtonStyling = () => {
               />
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4 text-gray-600">Font Weight</span>
+              <span className="text-xs w-2/4  text-[#00000073]">Font Weight</span>
               <Select
               className="w-2/4"
                 defaultValue="semibold"
@@ -332,7 +333,7 @@ const SocialButtonStyling = () => {
               />
             </div>
             <div className="flex  items-center">
-              <span className="text-xs text-gray-600 w-2/4">Font Color</span>
+              <span className="text-xs w-2/4  text-[#00000073]">Font Color</span>
               <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{
@@ -347,7 +348,7 @@ const SocialButtonStyling = () => {
               </div>
             </div>
             <div className="flex  items-center">
-              <span className="text-xs text-gray-600 w-2/4">Background Color</span>
+              <span className="text-xs w-2/4  text-[#00000073]">Background Color</span>
               <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{
@@ -362,7 +363,7 @@ const SocialButtonStyling = () => {
               </div>
             </div>
             <div className="flex  items-center">
-              <span className="text-xs text-gray-600 w-2/4">Border Radius</span>
+              <span className="text-xs w-2/4  text-[#00000073]">Border Radius</span>
               <div className="flex items-center w-2/4 gap-2">
                 <div className="flex border border-[#D9D9D9] bg-white py-1.5 px-3 gap-6 items-center">
                   <MinusOutlined

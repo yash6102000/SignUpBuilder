@@ -117,7 +117,7 @@ const InputFieldStyling = () => {
   return (
     <div className="flex flex-col px-5 gap-4">
       <div className="flex justify-between items-center">
-        <span className="text-xs w-2/4  text-gray-600">Field State</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Field State</span>
         <Select
           className="w-2/4"
           defaultValue=""
@@ -126,7 +126,7 @@ const InputFieldStyling = () => {
         />
       </div>
       <div className="flex  items-center">
-        <span className="text-xs w-2/4 text-gray-600">Font Size</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Font Size</span>
         <Select
           className="w-2/4"
           defaultValue="sm"
@@ -135,7 +135,7 @@ const InputFieldStyling = () => {
         />
       </div>
       <div className="flex  items-center">
-        <span className="text-xs w-2/4 text-gray-600">Font Weight</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Font Weight</span>
         <Select
           className="w-2/4"
           defaultValue="regular"
@@ -145,7 +145,7 @@ const InputFieldStyling = () => {
       </div>
 
       <div className="flex  items-center">
-        <span className="text-xs w-2/4 text-gray-600">Font Color</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Font Color</span>
         <div className="flex w-2/4 items-center gap-2">
           <Colorpicker
             blockStyles={{
@@ -160,7 +160,7 @@ const InputFieldStyling = () => {
         </div>
       </div>
       <div className="flex  items-center">
-        <span className="text-xs w-2/4 text-gray-600">Background Color</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Background Color</span>
         <div className="flex w-2/4 items-center gap-2">
           <Colorpicker
             blockStyles={{
@@ -175,7 +175,7 @@ const InputFieldStyling = () => {
         </div>
       </div>
       <div className="flex  items-center">
-        <span className="text-xs text-gray-600 w-2/4">Box Border</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Box Border</span>
         <div className="flex items-center w-2/4 gap-2">
           <div className="flex border border-[#D9D9D9] bg-white py-1.5 px-3 gap-6 items-center">
             <MinusOutlined
@@ -214,7 +214,7 @@ const InputFieldStyling = () => {
         </div>
       </div>
       <div className="flex  items-center">
-        <span className="text-xs text-gray-600 w-2/4">Border Radius</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Border Radius</span>
         <div className="flex w-2/4 items-center gap-2">
           <div className="flex border border-[#D9D9D9] bg-white py-1.5 px-3 gap-6 items-center">
             <MinusOutlined
@@ -256,7 +256,7 @@ const InputFieldStyling = () => {
         </div>
       </div>
       <div className="flex justify-between items-center">
-        <span className="text-xs w-2/4  text-gray-600">Label Font State</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Label Font State</span>
         <Select
           className="w-2/4"
           defaultValue="sm"
@@ -265,7 +265,7 @@ const InputFieldStyling = () => {
         />
       </div>
       <div className="flex  items-center">
-        <span className="text-xs w-2/4 text-gray-600">Label Font Weight</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Label Font Weight</span>
         <Select
           className="w-2/4"
           defaultValue="regular"
@@ -274,7 +274,7 @@ const InputFieldStyling = () => {
         />
       </div>
       <div className="flex  items-center">
-        <span className="text-xs w-2/4 text-gray-600">Label Font Color</span>
+        <span className="text-xs w-2/4  text-[#00000073]">Label Font Color</span>
         <div className="flex w-2/4 items-center gap-2">
           <Colorpicker
             blockStyles={{

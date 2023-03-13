@@ -10,7 +10,9 @@ import {
   FullscreenExitOutlined,
   FullscreenOutlined,
   MobileOutlined,
+  RedoOutlined,
   TabletOutlined,
+  UndoOutlined,
 } from "@ant-design/icons";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { SecondTemplate } from "react-library";
@@ -178,7 +180,12 @@ const Container = () => {
     <div className="w-full">
       <div className="bg-[#F0F5FF] py-7 flex px-5 flex-col gap-7">
         <div className="flex justify-between items-center">
-          <span>image</span>
+          <div className="flex gap-3 items-center">
+
+          <RedoOutlined />
+          <hr className="h-5 w-px bg-[#ADC6FF]" />
+          <UndoOutlined />
+          </div>
           <div className="flex gap-4 items-center">
             <MobileOutlined
               onClick={mobileChange}
@@ -232,14 +239,13 @@ const Container = () => {
             path="template2"
             element={
               <SecondTemplate
-                className="self-center"
+                className={`self-center`}
                 data={signUpState.state}
               />
             }
           />
         </Routes>
 
-        <div className="flex justify-center"></div>
       </div>
     </div>
   );

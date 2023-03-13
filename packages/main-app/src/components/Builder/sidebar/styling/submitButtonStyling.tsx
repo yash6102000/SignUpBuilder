@@ -148,7 +148,7 @@ const SubmitButtonStying = () => {
           );
         }}
       >
-        <span className="text-xs text-black">Social Button Styling</span>
+        <span className="text-xs text-black">Submit Button Styling</span>
 
         {currentAccordian === 1 ? (
           <UpOutlined className="text-black" />
@@ -163,7 +163,6 @@ const SubmitButtonStying = () => {
         }
       >
         <div className="flex flex-col gap-2">
-          <h4 className="text-black font-xs">Submit Button Styling</h4>
           <div className="flex flex-col gap-4">
           <div>
               {" "}

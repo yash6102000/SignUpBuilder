@@ -38,7 +38,7 @@ export class FormComponent {
         icon: googleIcon,
       },
     ];
-
+  
     const socialButtonState = this.data.buttons.socialButtons?.buttonState;
     const submitButtonState = this.data.buttons.submitButton?.buttonState;
     console.log(this.data.inputField.fieldState, 'l');
@@ -49,7 +49,7 @@ export class FormComponent {
         }`}
       >
         {this.data.viewPort.fullScreen || this.data.viewPort.desktop ? (
-          <div class={`bg-[#070930] min-w-[424px] rounded-lg  flex px-[50px] pb-[80px] pt-[30px]`}>
+          <div class={`bg-[#070930] min-w-[424px] rounded-lg  px-[50px] pb-[80px] pt-[30px]`}>
             <div class="flex justify-between flex-col gap-20 ">
               <div class="flex flex-col gap-20 ">
                 <div>
@@ -206,7 +206,7 @@ export class FormComponent {
                   <div class={`text-xs w-full text-gray-600 text-center ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `}>OR SIGNUP WITH</div>{' '}
                   <hr class="h-px w-full bg-gray-300" />
                 </div>
-                <div class={`flex gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' ? 'flex-wrap' : null} items-center`}>
+                <div class={`flex gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && 'flex-wrap' } items-center`}>
                   {buttonData.map((data: any, index: number) => {
                     return (
                       <div
@@ -217,13 +217,13 @@ export class FormComponent {
                           fontWeight: `${this.data.buttons.socialButtons.fontWeight}`,
                           borderRadius: `${this.data.buttons.socialButtons.borderRadius}px`,
                         }}
-                        class={`border px-9 py-2  shadow-md  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
+                        class={`border   shadow-md  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
                           socialButtonState === 'Hover State' && 'border-[#4096ff]'
                         } gap-3 ${
                           this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && buttonData.slice(-1)[0].buttonText === data.buttonText
-                            ? ' w-full flex items-center  justify-center gap-1.5 text-center  '
+                            ? ' w-full flex items-center px-9 py-2  justify-center gap-1.5 text-center  '
                             : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'
-                            ? '  flex items-center justify-center w-fit gap-1.5 text-center '
+                            ? 'px-9 py-2  flex items-center justify-center w-fit gap-1.5 text-center '
                             : null
                         }`}
                       >

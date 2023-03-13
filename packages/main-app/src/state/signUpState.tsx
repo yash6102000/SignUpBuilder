@@ -66,7 +66,8 @@ export default ({ children }: { children: any }) => {
       labelFontSize: "sm",
       labelFontWeight: "400",
       labelFontColor: "#00000099",
-    }
+    },
+    socialLoginButton:[]
   });
 
   const store = {

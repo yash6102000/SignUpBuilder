@@ -20,24 +20,7 @@ export class FormComponent {
   }
 
   render() {
-    const buttonData = [
-      {
-        buttonText: 'google',
-        icon: googleIcon,
-      },
-      {
-        buttonText: 'microsoft',
-        icon: googleIcon,
-      },
-      {
-        buttonText: 'git',
-        icon: googleIcon,
-      },
-      {
-        buttonText: 'facebook',
-        icon: googleIcon,
-      },
-    ];
+  
   
     const socialButtonState = this.data.buttons.socialButtons?.buttonState;
     const submitButtonState = this.data.buttons.submitButton?.buttonState;
@@ -206,8 +189,8 @@ export class FormComponent {
                   <div class={`text-xs w-full text-gray-600 text-center ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `}>OR SIGNUP WITH</div>{' '}
                   <hr class="h-px w-full bg-gray-300" />
                 </div>
-                <div class={`flex gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && 'flex-wrap' } items-center`}>
-                  {buttonData.map((data: any, index: number) => {
+                <div class={`flex flex-row-reverse gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && 'flex-wrap' } items-center`}>
+                  {this.data.socialLoginButton.map((data: any, index: number) => {
                     return (
                       <div
                         style={{
@@ -217,21 +200,21 @@ export class FormComponent {
                           fontWeight: `${this.data.buttons.socialButtons.fontWeight}`,
                           borderRadius: `${this.data.buttons.socialButtons.borderRadius}px`,
                         }}
-                        class={`border   shadow-md  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
+                        class={`border    flex items-center shadow-md  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
                           socialButtonState === 'Hover State' && 'border-[#4096ff]'
                         } gap-3 ${
-                          this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && buttonData.slice(-1)[0].buttonText === data.buttonText
-                            ? ' w-full flex items-center px-9 py-2  justify-center gap-1.5 text-center  '
+                          this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && this.data.socialLoginButton.slice(-1)[0].label === data.label
+                            ? ' w-full h-10 flex items-center px-9 py-2  justify-center gap-1.5 text-center  '
                             : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'
-                            ? 'px-9 py-2  flex items-center justify-center w-fit gap-1.5 text-center '
+                            ? 'px-9 py-2 h-10  flex items-center justify-center w-fit gap-1.5 text-center '
                             : null
                         }`}
                       >
-                        <img class="w-[18px] h-[18px] max-w-none" src={data.icon} alt="" />{' '}
+                        <img src={googleIcon} alt="" />
                         {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && index === 3 ? (
-                          <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.buttonText}</span>
-                        ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' &&buttonData.length<3 ? (
-                          <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.buttonText}</span>
+                          <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
+                        ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' &&this.data.socialLoginButton.length<3 ? (
+                          <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
                         ) : null}
                       </div>
                     );

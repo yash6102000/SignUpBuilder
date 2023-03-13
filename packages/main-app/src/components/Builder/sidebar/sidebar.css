@@ -26,3 +26,6 @@
 .ant-upload-wrapper {
     width: auto !important;
 }
+.ant-menu-item:hover{
+    background-color: transparent !important;
+}

@@ -4,8 +4,6 @@ import tailwind, { tailwindHMR } from 'stencil-tailwind-plugin';
 
 export const config: Config = {
   namespace: 'stencil-library',
-  globalStyle: 'www/tailwind.css',
-  
   outputTargets: [
     {
       type: 'dist',
@@ -24,15 +22,9 @@ export const config: Config = {
     },
     {
       type: 'www',
-      empty:false,
+      empty: false,
       serviceWorker: null, // disable service workers
     },
-    
   ],
-  plugins: [
-    tailwind(),
-    tailwindHMR(),
-  ],
-  
-
+  plugins: [tailwind(), tailwindHMR()],
 };

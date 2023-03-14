@@ -46,7 +46,7 @@ export interface SubmitButton {
   fontWeight: string;
   fontColor: string;
   backgroundColor: string;
-  borderRadius: 0;
+  borderRadius: number;
   buttonState: string;
 }
 export interface Colors{

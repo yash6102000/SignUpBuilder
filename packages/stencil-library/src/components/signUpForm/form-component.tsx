@@ -22,6 +22,7 @@ export class FormComponent {
   render() {
     const socialButtonState = this.data.buttons.socialButtons?.buttonState;
     const submitButtonState = this.data.buttons.submitButton?.buttonState;
+    console.log(this.data.socialLoginButton.length, 'l');
     return (
       <div
         class={`flex  rounded-xl   border-text-[#8C8C8C] border ${
@@ -32,7 +33,7 @@ export class FormComponent {
           <div class={`bg-[#070930] min-w-[424px] rounded-lg  px-[50px] pb-[80px] pt-[30px]`}>
             <div class="flex justify-between flex-col gap-20 ">
               <div class="flex flex-col gap-20 ">
-                <div class={`${this.data.logoAlignment==='center'?"flex justify-center":this.data.logoAlignment==='right'?"flex justify-end":null}`}>
+                <div class={`${this.data.logoAlignment === 'center' ? 'flex justify-center' : this.data.logoAlignment === 'right' ? 'flex justify-end' : null}`}>
                   {this.data.logoImage ? (
                     <img class="max-w-[100px]" src={this.data.logoImage} alt="" />
                   ) : (
@@ -112,7 +113,6 @@ export class FormComponent {
                       fontWeight: `${this.data.inputField.labelFontWeight}`,
                     }}
                     htmlFor=""
-                    
                   >
                     Email
                   </label>
@@ -127,7 +127,7 @@ export class FormComponent {
                     value={this.email}
                     onInput={event => this.handleChange(event)}
                     class={`border-[#D9D9D9] border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
-                    placeholder='Enter Your Email'
+                    placeholder="Enter Your Email"
                     type="text"
                   />
                 </div>
@@ -185,11 +185,16 @@ export class FormComponent {
                 </div>
               </div>
               <div class={`flex gap-9 ${this.data.buttons.socialButtons.position.top ? 'flex-col-reverse' : 'flex-col'}`}>
-                <div class="flex justify-between items-center gap-2">
-                  <hr class="h-px w-full bg-gray-300" />{' '}
-                  <div class={`text-xs w-full text-gray-600 text-center ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `}>OR SIGNUP WITH</div>{' '}
-                  <hr class="h-px w-full bg-gray-300" />
-                </div>
+                {this.data.socialLoginButton.length > 0 && (
+                  <div class="flex justify-between items-center gap-2">
+                    <hr class="h-px w-full bg-gray-300" />{' '}
+                    <div class={`text-xs w-full text-gray-600 text-center ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `}>
+                      OR SIGNUP WITH
+                    </div>{' '}
+                    <hr class="h-px w-full bg-gray-300" />
+                  </div>
+                )}
+
                 <div class={`flex flex-row-reverse gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && 'flex-wrap'} items-center`}>
                   {this.data.socialLoginButton.map((data: any, index: number) => {
                     return (

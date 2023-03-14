@@ -35,7 +35,7 @@ const EmailPassLogin = () => {
       <div className="flex flex-col gap-3">
             {emailPassData.map((data: any) => {
               return (
-                <div key={data.layout} >
+                <div key={data.value} >
                   <div
                     onClick={() =>
                         signUpState.setState({

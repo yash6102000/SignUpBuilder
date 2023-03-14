@@ -194,10 +194,11 @@ export class FormComponent {
                   </div>
                 )}
 
-                <div class={`flex flex-row-reverse gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && 'flex-wrap'} items-center`}>
+                <div class={`flex flex-row-reverse gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'&&this.data.socialLoginButton.length>2 && 'flex-wrap'} items-center`}>
                   {this.data.socialLoginButton.map((data: any) => {
                     return (
                       <div
+                        key={data.value}
                         style={{
                           color: `${socialButtonState === 'Disabled State' ? '#00000040' : this.data.buttons.socialButtons.fontColor}`,
 
@@ -205,17 +206,19 @@ export class FormComponent {
                           fontWeight: `${this.data.buttons.socialButtons.fontWeight}`,
                           borderRadius: `${this.data.buttons.socialButtons.borderRadius}px`,
                         }}
-                        class={`border flex items-center shadow-md  ${
-                          socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'
-                        }  ${socialButtonState === 'Hover State' && 'border-[#4096ff]'} gap-3 ${
+                        class={`border flex items-center shadow-md  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
+                          socialButtonState === 'Hover State' && 'border-[#4096ff]'
+                        } gap-3 ${
                           this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && this.data.socialLoginButton.slice(-1)[0].label === data.label
                             ? ' w-full h-10 flex items-center px-9 py-2  justify-center gap-1.5 text-center  '
-                            : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'
+                            : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && this.data.socialLoginButton.length > 2
                             ? 'px-9 py-2 h-10  flex items-center justify-center w-fit gap-1.5 text-center '
+                            : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && this.data.socialLoginButton.length <= 2
+                            ? 'px-9 py-2 h-10  flex items-center justify-center w-full gap-1.5 text-center '
                             : null
                         }`}
                       >
-                        <iconify-icon icon={data.icon}></iconify-icon>
+                        <iconify-icon icon={data.logo}></iconify-icon>
                         {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && this.data.socialLoginButton.slice(-1)[0].label === data.label ? (
                           <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
                         ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && this.data.socialLoginButton.length < 4 ? (
@@ -236,7 +239,6 @@ export class FormComponent {
             </div>
           </div>
         </div>
-     
       </div>
     );
   }

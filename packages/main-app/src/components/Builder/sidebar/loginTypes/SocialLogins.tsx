@@ -15,7 +15,7 @@ const SocialLogin = () => {
     {
       label: "Apple",
       value: "apple",
-      logo: "logos:apple      ",
+      logo: "logos:apple",
       checked: false,
     },
     { label: "Git", value: "git", logo: "logos:github-icon", checked: false },

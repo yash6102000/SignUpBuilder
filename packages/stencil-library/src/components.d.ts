@@ -5,12 +5,14 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
+import { SignpState } from "./interface";
+export { SignpState } from "./interface";
 export namespace Components {
     interface ContainerWrapper {
         "signUp": any;
     }
     interface FormComponent {
-        "data": any;
+        "data": SignpState;
     }
     interface MyComponent {
         /**
@@ -67,7 +69,7 @@ declare namespace LocalJSX {
         "signUp"?: any;
     }
     interface FormComponent {
-        "data"?: any;
+        "data"?: SignpState;
     }
     interface MyComponent {
         /**

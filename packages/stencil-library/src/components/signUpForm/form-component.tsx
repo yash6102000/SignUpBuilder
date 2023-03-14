@@ -4,6 +4,7 @@ import addLogo from '../../addLogo.svg';
 import starLogo from '../../star.svg';
 import avtar from '../../Avatar.svg';
 import addCircleOutline from '../../AddCircleOutline.svg';
+import { SignpState } from '../../interface';
 //@ts-ignore
 @Component({
   tag: 'form-component',
@@ -11,7 +12,7 @@ import addCircleOutline from '../../AddCircleOutline.svg';
   styleUrl: 'form.css',
 })
 export class FormComponent {
-  @Prop() data: any;
+  @Prop() data: SignpState;
   @State() email: string = '';
   @Watch('data')
   handleChange(event) {
@@ -187,7 +188,7 @@ export class FormComponent {
                 {this.data.socialLoginButton.length > 0 && (
                   <div class="flex justify-between items-center gap-2">
                     <hr class="h-px w-full bg-gray-300" />{' '}
-                    <div class={`text-xs w-full text-gray-600 text-center ${this.data.signUpBox.backgroundColor === '#000000' ? 'text-white' : 'text-black '} `}>
+                    <div class={`text-xs w-full text-gray-600 text-center  `}>
                       OR SIGNUP WITH
                     </div>{' '}
                     <hr class="h-px w-full bg-gray-300" />

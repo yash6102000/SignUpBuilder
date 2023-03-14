@@ -1,5 +1,5 @@
 import { Component, Prop, h } from '@stencil/core';
-
+import 'iconify-icon';
 @Component({
   tag: 'my-component',
   styleUrl: 'my-component.css',
@@ -20,9 +20,13 @@ export class MyComponent {
    */
   @Prop() last: any;
 
-  
-
   render() {
-    return <div class='bg-red-600'>Hello, World! I'm {this.first}</div>;
+    return (
+      <div>
+        <div class="bg-red-600">Hello, World! I'm {this.first}</div>
+        <iconify-icon icon="mdi:home"></iconify-icon>
+        
+      </div>
+    );
   }
 }

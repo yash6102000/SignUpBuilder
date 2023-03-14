@@ -1,6 +1,5 @@
 import { Component, Prop, Watch, State, h } from '@stencil/core';
-
-import googleIcon from '../../googleIcon.svg';
+import 'iconify-icon';
 import addLogo from '../../addLogo.svg';
 import starLogo from '../../star.svg';
 import avtar from '../../Avatar.svg';
@@ -196,7 +195,7 @@ export class FormComponent {
                 )}
 
                 <div class={`flex flex-row-reverse gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && 'flex-wrap'} items-center`}>
-                  {this.data.socialLoginButton.map((data: any, index: number) => {
+                  {this.data.socialLoginButton.map((data: any) => {
                     return (
                       <div
                         style={{
@@ -206,7 +205,7 @@ export class FormComponent {
                           fontWeight: `${this.data.buttons.socialButtons.fontWeight}`,
                           borderRadius: `${this.data.buttons.socialButtons.borderRadius}px`,
                         }}
-                        class={`border    flex items-center shadow-md  ${
+                        class={`border flex items-center shadow-md  ${
                           socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'
                         }  ${socialButtonState === 'Hover State' && 'border-[#4096ff]'} gap-3 ${
                           this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && this.data.socialLoginButton.slice(-1)[0].label === data.label
@@ -216,8 +215,8 @@ export class FormComponent {
                             : null
                         }`}
                       >
-                        <img src={googleIcon} alt="" />
-                        {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && index === 3 ? (
+                        <iconify-icon icon={data.icon}></iconify-icon>
+                        {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && this.data.socialLoginButton.slice(-1)[0].label === data.label ? (
                           <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
                         ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && this.data.socialLoginButton.length < 4 ? (
                           <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
@@ -237,6 +236,7 @@ export class FormComponent {
             </div>
           </div>
         </div>
+     
       </div>
     );
   }

@@ -12,7 +12,6 @@ import { BrowserRouter} from "react-router-dom";
 //@ts-ignore
 defineCustomElements();
 const App = () => {
-  const { signUpState }: any = React.useContext(StoreContext);
   const items: TabsProps["items"] = [
     {
       key: "1",

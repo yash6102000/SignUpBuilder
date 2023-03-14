@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 // import googleIcon from '../../..'
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
 const SocialLogin = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   // Add/Remove checked item from list
@@ -15,11 +15,16 @@ const SocialLogin = () => {
     {
       label: "Apple",
       value: "apple",
-      logo: "logos:google-icon",
+      logo: "logos:apple      ",
       checked: false,
     },
-    { label: "Git", value: "git", logo: "logos:google-icon", checked: false },
-    { label: "Linkedin", value: "linkedin", logo: "logos:google-icon", checked: false },
+    { label: "Git", value: "git", logo: "logos:github-icon", checked: false },
+    {
+      label: "Linkedin",
+      value: "linkedin",
+      logo: "logos:linkedin-icon",
+      checked: false,
+    },
   ];
   const [checked, setChecked]: any = useState(socialButtonOptions);
   const updateCheckStatus = (index: any) => {
@@ -28,14 +33,13 @@ const SocialLogin = () => {
         currentIndex === index
           ? { ...checked, checked: !checked.checked }
           : checked
-      ),
-
+      )
     );
   };
   const filterData = checked.filter((data: any) => {
     return data.checked === true;
   });
-  
+
   useEffect(() => {
     signUpState.setState({
       ...signUpState.state,
@@ -45,7 +49,9 @@ const SocialLogin = () => {
   return (
     <div className="flex p-6  flex-col gap-3">
       <div>
-        <h2 className="text-sm font-medium text-[#000000d9]">Social Logins (1/4)</h2>
+        <h2 className="text-sm font-medium text-[#000000d9]">
+          Social Logins (1/4)
+        </h2>
         <span className="text-xs font-normal text=[#00000073]">
           You can select only 4 social logins.
         </span>
@@ -63,10 +69,9 @@ const SocialLogin = () => {
                 name={data.value}
               />
               <div className="flex items-center gap-1">
-              <Icon className="w-5 h-5" icon={data.logo} />
-              <span className="font-normal text-xs">{data.label}</span>
+                <Icon className="w-5 h-5" icon={data.logo} />
+                <span className="font-normal text-xs">{data.label}</span>
               </div>
-        
             </div>
           );
         })}

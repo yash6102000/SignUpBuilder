@@ -69,7 +69,7 @@ export default ({ children }: { children: any }) => {
       labelFontColor: "#00000099",
     },
     socialLoginButton:[],
-    emailPassLogin:'Magic',
+    emailPassLogin:"enablePasswordLogin",
     userApprovel:[],
 
     

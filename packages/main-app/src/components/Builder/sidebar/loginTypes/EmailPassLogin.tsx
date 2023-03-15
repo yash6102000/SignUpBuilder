@@ -34,13 +34,14 @@ const EmailPassLogin = () => {
       </h2>
       <div className="flex flex-col gap-3">
             {emailPassData.map((data: any) => {
+              
               return (
                 <div key={data.value} >
                   <div
                     onClick={() =>
                         signUpState.setState({
                             ...signUpState.state,
-                            emailPassLogin: (signUpState.state.emailPassLogin = data.value),
+                            emailPassLogin: (signUpState.state.emailPassLogin === data.value),
                           })
                     }
                     className="flex items-center gap-3"

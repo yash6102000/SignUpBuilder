@@ -184,13 +184,15 @@ export class FormComponent {
                           Terms of Service
                         </a>
                       )}
+                      {
+                        filterApprovelData.length>1&&<span class='text-[#00000073] text-xs'>and</span>
+                      }
+                      {''}
                       {filterApprovelData.includes('privacyPolicy') && (
-                        <div class='flex gap-1 items-center'>
-                      {''}<span class='text-[#00000073] text-xs'>and</span>
+                      
                           <a style={{ color: this.data.colors.primary }} href="/">
                             Privacy Policy
                           </a>
-                        </div>
                       )}
                     </span>
                   )}

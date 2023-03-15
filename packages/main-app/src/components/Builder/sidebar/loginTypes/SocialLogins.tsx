@@ -10,7 +10,7 @@ const SocialLogin = () => {
       label: "Google",
       value: "google",
       logo: "logos:google-icon",
-      checked: false,
+      checked: true,
     },
     {
       label: "Apple",

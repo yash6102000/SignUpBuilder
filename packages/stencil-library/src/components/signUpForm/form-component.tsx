@@ -22,7 +22,11 @@ export class FormComponent {
   render() {
     const socialButtonState = this.data.buttons.socialButtons?.buttonState;
     const submitButtonState = this.data.buttons.submitButton?.buttonState;
-    console.log(this.data.socialLoginButton.length, 'l');
+    let filterApprovelData = [];
+    this.data?.userApprovel?.filter((data: any) => {
+      return filterApprovelData.push(data.value);
+    });
+    console.log(filterApprovelData, 'l');
     return (
       <div
         class={`flex  rounded-xl   border-text-[#8C8C8C] border ${
@@ -172,30 +176,38 @@ export class FormComponent {
                   Continue
                 </button>
                 <div class="flex flex-col gap-1">
-                  <span class={`text-xs text-gray-600 ${this.data.theme.color === 'dark' ? 'text-white' : 'text-black'}`}>
-                    By continuing, you agree to the{' '}
-                    <a href="/" style={{ color: this.data.colors.primary }}>
-                      Terms of Service
-                    </a>{' '}
-                    and{' '}
-                    <a style={{ color: this.data.colors.primary }} href="/">
-                      Privacy Policy
-                    </a>
-                  </span>
+                  {filterApprovelData.length>0 && (
+                    <span class={`text-xs flex items-center gap-1 text-[#00000073] ${this.data.theme.color === 'dark' ? 'text-white' : 'text-black'}`}>
+                      By continuing, you agree to the{' '}
+                      {filterApprovelData.includes('termsOfUse') && (
+                        <a href="/" style={{ color: this.data.colors.primary }}>
+                          Terms of Service
+                        </a>
+                      )}
+                      {filterApprovelData.includes('privacyPolicy') && (
+                        <div class='flex gap-1 items-center'>
+                      {''}<span class='text-[#00000073] text-xs'>and</span>
+                          <a style={{ color: this.data.colors.primary }} href="/">
+                            Privacy Policy
+                          </a>
+                        </div>
+                      )}
+                    </span>
+                  )}
                 </div>
               </div>
               <div class={`flex gap-9 ${this.data.buttons.socialButtons.position.top ? 'flex-col-reverse' : 'flex-col'}`}>
                 {this.data.socialLoginButton.length > 0 && (
                   <div class="flex justify-between items-center gap-2">
-                    <hr class="h-px w-full bg-gray-300" />{' '}
-                    <div class={`text-xs w-full text-gray-600 text-center  `}>
-                      OR SIGNUP WITH
-                    </div>{' '}
-                    <hr class="h-px w-full bg-gray-300" />
+                    <hr class="h-px w-full bg-gray-300" /> <div class={`text-xs w-full text-gray-600 text-center  `}>OR SIGNUP WITH</div> <hr class="h-px w-full bg-gray-300" />
                   </div>
                 )}
 
-                <div class={`flex flex-row-reverse gap-3 justify-center ${this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split'&&this.data.socialLoginButton.length>2 && 'flex-wrap'} items-center`}>
+                <div
+                  class={`flex flex-row-reverse gap-3 justify-center ${
+                    this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && this.data.socialLoginButton.length > 2 && 'flex-wrap'
+                  } items-center`}
+                >
                   {this.data.socialLoginButton.map((data: any) => {
                     return (
                       <div

@@ -47,7 +47,6 @@ const UserApprovel = () => {
       </h2>
       <div className="flex flex-col gap-5">
         {checked.map((data: any, index: number) => {
-          console.log(data,'data.checked')
           return (
             <div key={data.value} className="flex items-center gap-3">
               <input

@@ -1,26 +1,10 @@
 import React from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import { Icon } from '@iconify/react';
+import { emailPassData } from "../../../../styleConfigs";
 const EmailPassLogin = () => {
     const { signUpState }: any = React.useContext(StoreContext);
-  const emailPassData = [
-    {
-      label: "Magic Link ",
-      value: "magicLink ",
-
-      logo: "logos:google-icon",
-    },
-    {
-      label: "Magic Code",
-      value: "magicCode",
-      logo: "logos:google-icon",
-    },
-    {
-      label: "Enable Password Login",
-      value: "enablePasswordLogin",
-      logo: "logos:google-icon",
-    },
-  ];
+  
   function onSiteChanged(e: any) {
     signUpState.setState({
         ...signUpState.state,

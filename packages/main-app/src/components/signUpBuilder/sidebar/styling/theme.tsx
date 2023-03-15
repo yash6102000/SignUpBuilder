@@ -1,24 +1,9 @@
 import React from "react";
 import { StoreContext } from "../../../../state/signUpState";
+import { themeBox } from "../../../../styleConfigs";
 const Theme = () => {
   const { signUpState }:any = React.useContext(StoreContext)
-  const themeBox = [
-    {
-      bg: "bg-white",
-      value: "light",
-      text: "Light",
-    },
-    {
-      bg: "bg-black",
-      value: "dark",
-      text: "Dark",
-    },
-    {
-      bg: "bg-gray-400",
-      value: "texture",
-      text: "Texture",
-    },
-  ];
+ 
 
   function onSiteChanged(e: any) {
     signUpState.setState({ ...signUpState.state, theme: (signUpState.state.theme.color = e.target.value) });

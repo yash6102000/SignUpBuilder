@@ -7,7 +7,7 @@ import { StoreContext } from "../src/state/signUpState";
 import { createRoot } from "react-dom/client";
 import { Tabs, TabsProps } from "antd";
 import TemplateContainer from "./components/templates/TemplatesContainer";
-import BuilderContainer from "./components/Builder/BuilderContainer";
+import BuilderContainer from "./components/signUpBuilder/BuilderContainer";
 import { BrowserRouter} from "react-router-dom";
 //@ts-ignore
 defineCustomElements();

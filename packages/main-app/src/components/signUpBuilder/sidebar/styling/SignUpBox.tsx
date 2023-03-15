@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { Button } from "antd";
+import ColorPickerComponent from "./ColorPicker";
 const SignUpBox = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   const [bgColor, setBgColor] = useState(
@@ -45,21 +46,14 @@ const SignUpBox = () => {
   ];
   return (
     <div className="p-5 flex flex-col gap-4">
-      <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">Background Color</span>
-        <div className="flex items-center gap-2 w-2/4">
-          <Colorpicker
-            blockStyles={{
-              width: "24px",
-              height: "24px",
-            }}
-            value={bg}
-            popup={true}
-            onChange={onBgChange}
-          />
-          <span className="text-black">{bgColor}</span>
-        </div>
-      </div>
+      <ColorPickerComponent
+        label="Background Color"
+        value={bg}
+        onChange={onBgChange}
+        popup={true}
+        fontColor={bgColor}
+      />
+
       <div className="flex  items-center">
         <span className="text-xs w-2/4  text-[#00000073]">Box Border</span>
         <div className="flex items-center w-2/4 gap-2">
@@ -121,7 +115,6 @@ const SignUpBox = () => {
               </Button>
             );
           })}
-          <button></button>
         </div>
       </div>
     </div>

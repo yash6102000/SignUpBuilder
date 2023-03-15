@@ -1,24 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import { Icon } from "@iconify/react";
+import { userApprovelOptions } from "../../../../styleConfigs";
 const UserApprovel = () => {
     const { signUpState }: any = React.useContext(StoreContext);
     // Add/Remove checked item from list
-    const userApprovelOptions = [
-      {
-        label: "Terms of Use",
-        value: "termsOfUse",
-        logo: "logos:google-icon",
-        checked: true,
-      },
-      {
-        label: "Privacy Policy",
-        value: "privacyPolicy",
-        logo: "logos:google-icon",
-        checked: true,
-      },
-   
-    ];
+  
+    
     const [checked, setChecked]: any = useState(userApprovelOptions);
     const updateCheckStatus = (index: any) => {
       setChecked(

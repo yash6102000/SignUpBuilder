@@ -1,8 +1,9 @@
 import React from "react";
-import SidebarTabs from "./sidebar/SidebarTabs";
+
 import Container from "../../Container";
-import "../Builder/builder.css";
+import "./builder.css";
 import { StoreContext } from "../../state/signUpState";
+import SidebarTabs from "./sidebar/SidebarTabs";
 
 const BuilderContainer = () => {
   const { signUpState }: any = React.useContext(StoreContext);

@@ -37,12 +37,13 @@ console.log(this.email,'ye email hai')
       const heading = document?.getElementById('login-box-heading');
       heading?.focus();
     }
-    console.log(this.data.colors.error,'this.data.colors.error')
+    console.log(this.data.typography.title.bold,'this.data.colors.error')
     return (
       <div
         class={`flex  rounded-xl   border-text-[#8C8C8C] border ${
           this.data.theme.color === 'dark' ? 'bg-black' : this.data.theme.color === 'texture' ? 'bg-gray-600' : 'bg-white'
         }`}
+        style={{fontFamily:this.data.typography.fontType}}
       >
         {this.data.viewPort.fullScreen || this.data.viewPort.desktop ? (
           <div class={`bg-[#070930] min-w-[424px] rounded-lg  px-[50px] pb-[80px] pt-[30px]`}>
@@ -58,7 +59,7 @@ console.log(this.email,'ye email hai')
                     </div>
                   )}
                 </div>
-                <div class="max-w-[280px]">
+                <div class="max-w-[280px] gap-2 flex flex-col">
                   <h1
                     class={`text-3xl font-medium ${this.onEdit && 'underline underline-offset-8 outline-none transition-all duration-300 ease-in-out'}  text-white `}
                     contentEditable={this.onEdit}
@@ -67,7 +68,8 @@ console.log(this.email,'ye email hai')
                   </h1>
 
                   <span
-                    class={`text-white text-sm ${this.layoutBoxDescription && 'underline underline-offset-8 outline-none transition-all duration-300 ease-in-out'}`}
+                  style={{fontSize:this.data.typography.subTitle.fontSize,fontWeight:this.data.typography.subTitle.bold?'bold':null}}
+                    class={`text-white ${this.layoutBoxDescription && 'underline underline-offset-8 outline-none transition-all duration-300 ease-in-out'}`}
                     contentEditable={this.layoutBoxDescription}
                   >
                     Discover the world’s best community of freelancers ad business owners.{' '}
@@ -83,14 +85,14 @@ console.log(this.email,'ye email hai')
                 </div>
 
                 <div class="border-text-none rounded-2xl bg-[#252BA9] flex flex-col gap-6 p-5">
-                  <span class="text-white text-xs">
+                  <span style={{fontSize:this.data.typography.normalText.fontSize}} class={`text-white text-xs`}>
                     "This SAAS product has made my life so much easier! It's intuitive, efficient, and has all the features I need to run my business smoothly."
                   </span>
                   <div class="flex gap-2 items-center">
                     <img src={avtar} alt="" />
                     <div>
-                      <h4 class="text-white text-sm">Arun Raj</h4>
-                      <span class="text-white text-xs">Senior Product Manger @ABSoftwares</span>
+                      <h4  style={{fontSize:this.data.typography.subTitle.fontSize}} class="text-white">Arun Raj</h4>
+                      <span  style={{fontSize:this.data.typography.normalText.fontSize}} class="text-white">Senior Product Manger @ABSoftwares</span>
                     </div>
                   </div>
                 </div>
@@ -119,13 +121,14 @@ console.log(this.email,'ye email hai')
 
             <div class="flex items-center gap-1.5">
               <h3
-                class={`text-xl font-medium ${this.onEditLoginBoxHeading && 'underline underline-offset-8 outline-none transition-all duration-300 ease-in-out'}  ${
+                class={`font-medium ${this.onEditLoginBoxHeading && 'underline underline-offset-8 outline-none transition-all duration-300 ease-in-out'}  ${
                   this.data.theme.color === 'dark' ? 'text-white' : 'text-black'
                 } `}
                 contentEditable={this.onEditLoginBoxHeading}
                 id="login-box-heading"
                 tabIndex={0}
                 onMouseOut={() => this.onEditLoginBoxHeading === false}
+                style={{fontSize:this.data.typography.title.fontSize,fontWeight:this.data.typography.title.bold?'bold':null}}
               >
                 Welcome to Company Name!
                 <img
@@ -218,6 +221,8 @@ console.log(this.email,'ye email hai')
                     fontWeight: `${this.data.buttons.submitButton.fontWeight}`,
                     borderRadius: `${this.data.buttons.submitButton.borderRadius}px`,
                   }}
+                  tabIndex={0}
+                type='submit'
                   class={`bg-[#070930] max-h-12 ${submitButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'} ${
                     submitButtonState === 'Hover State' && 'border-[#4096ff]'
                   }    text-${this.data.buttons.submitButton.fontSize} rounded-sm py-2 text-center items-center text-white`}
@@ -226,17 +231,17 @@ console.log(this.email,'ye email hai')
                 </button>
                 <div class="flex flex-col gap-1">
                   {filterApprovelData.length > 0 && (
-                    <span class={`text-xs flex items-center gap-1 text-[#00000073] ${this.data.theme.color === 'dark' ? 'text-white' : 'text-black'}`}>
+                    <span  style={{fontSize:this.data.typography.normalText.fontSize,fontWeight:this.data.typography.normalText.bold?'bold':null}} class={` flex-wrap flex items-center gap-1 text-[#00000073] ${this.data.theme.color === 'dark' ? 'text-white' : 'text-black'}`}>
                       <span>By continuing, you agree to the</span>
                       {filterApprovelData.includes('termsOfUse') && (
-                        <a href="/" style={{ color: this.data.colors.primary }}>
+                        <a class={this.data.typography.links.linkTypes} href="/" style={{ color: this.data.colors.primary,fontSize:this.data.typography.links.fontSize,fontWeight:this.data.typography.links.bold?'bold':null }}>
                           Terms of Service
                         </a>
                       )}
                       {filterApprovelData.length > 1 && <span class="text-[#00000073] text-xs">and</span>}
                       {''}
                       {filterApprovelData.includes('privacyPolicy') && (
-                        <a style={{ color: this.data.colors.primary }} href="/">
+                        <a class={this.data.typography.links.linkTypes} style={{ color: this.data.colors.primary ,fontSize:this.data.typography.links.fontSize,fontWeight:this.data.typography.links.bold?'bold':null}} href="/">
                           Privacy Policy
                         </a>
                       )}

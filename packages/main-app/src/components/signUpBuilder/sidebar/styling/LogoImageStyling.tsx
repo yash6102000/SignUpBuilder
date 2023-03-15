@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import {  SelectProps, Upload } from "antd";
+import {   Upload } from "antd";
 import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
 import { StoreContext } from "../../../../state/signUpState";
 import "../sidebar.css";
 import SelectComponent from "../../../common-functions/SelectComponent";
+import { logoAlignments } from "../../../../styleConfigs";
 const LogoImageStyling = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   const [fileList, setFileList] = useState<UploadFile[]>([]);
@@ -29,20 +30,6 @@ const LogoImageStyling = () => {
     });
   };
 
-  const logoAlignments: SelectProps["options"] = [
-    {
-      label: "Left",
-      value: "left",
-    },
-    {
-      label: "Center",
-      value: "center",
-    },
-    {
-      label: "Right",
-      value: "right",
-    },
-  ];
 
   const handleChange = (value: string | string[]) => {
     signUpState.setState({

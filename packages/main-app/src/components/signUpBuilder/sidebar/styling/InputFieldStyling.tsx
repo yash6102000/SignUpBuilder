@@ -1,10 +1,11 @@
 import {  SelectProps } from "antd";
 import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
-import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
+import { AnyColorFormat } from "antd-colorpicker";
 import { fontSize, fontWeight } from "../../../../styleConfigs";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import SelectComponent from "../../../common-functions/SelectComponent";
+import ColorPickerComponent from "./ColorPicker";
 const InputFieldStyling = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   const [fontColor, setFontColor] = useState(
@@ -144,38 +145,10 @@ const InputFieldStyling = () => {
         options={fontWeight}
       />
 
-      <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">Font Color</span>
-        <div className="flex w-2/4 items-center gap-2">
-          <Colorpicker
-            blockStyles={{
-              width: "24px",
-              height: "24px",
-            }}
-            value={color1}
-            popup={true}
-            onChange={onFontChnage}
-          />
-          <span className="text-black">{fontColor}</span>
-        </div>
-      </div>
-      <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">
-          Background Color
-        </span>
-        <div className="flex w-2/4 items-center gap-2">
-          <Colorpicker
-            blockStyles={{
-              width: "24px",
-              height: "24px",
-            }}
-            value={color2}
-            popup={true}
-            onChange={onBgChange}
-          />
-          <span className="text-black">{bgColor}</span>
-        </div>
-      </div>
+     
+      <ColorPickerComponent label="Font Color"value={color1} popup={true} onChange={onFontChnage} fontColor={fontColor} />
+      <ColorPickerComponent label="Background Color"value={color2} popup={true} onChange={onBgChange} fontColor={bgColor} />
+    
       <div className="flex  items-center">
         <span className="text-xs w-2/4  text-[#00000073]">Box Border</span>
         <div className="flex items-center w-2/4 gap-2">
@@ -270,24 +243,8 @@ const InputFieldStyling = () => {
         onChange={handleLabelFontWeight}
         options={fontWeight}
       />
-
-      <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">
-          Label Font Color
-        </span>
-        <div className="flex w-2/4 items-center gap-2">
-          <Colorpicker
-            blockStyles={{
-              width: "24px",
-              height: "24px",
-            }}
-            value={color3}
-            popup={true}
-            onChange={onLabelFontChange}
-          />
-          <span className="text-black">{labelFontColors}</span>
-        </div>
-      </div>
+ <ColorPickerComponent label="Label Font Color"value={color3} popup={true} onChange={onLabelFontChange} fontColor={labelFontColors} />
+      
     </div>
   );
 };

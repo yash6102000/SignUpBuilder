@@ -8,10 +8,11 @@ import { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import "../sidebar.css";
 import { Select, SelectProps } from "antd";
-import { fontSize, fontWeight } from "../../../../styleConfigs";
+import { buttonStates, fontSize, fontWeight } from "../../../../styleConfigs";
 import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
 import React from "react";
 import SelectComponent from "../../../common-functions/SelectComponent";
+import ColorPickerComponent from "./ColorPicker";
 const SubmitButtonStying = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   const [fontColor, setFontColor] = useState(
@@ -114,24 +115,7 @@ const SubmitButtonStying = () => {
       },
     });
   };
-  const options: SelectProps["options"] = [
-    {
-      label: "default State",
-      value: "Default State",
-    },
-    {
-      label: "hover State",
-      value: "Hover State",
-    },
-    {
-      label: "active State",
-      value: "Active State",
-    },
-    {
-      label: "disabled State",
-      value: "Disabled State",
-    },
-  ];
+
   const [currentAccordian, setCurrentAccordian] = useState(-1);
   return (
     <div className="flex py-5  border-t-2 border-dashed border-[#D9D9D9] flex-col gap-5">
@@ -165,12 +149,12 @@ const SubmitButtonStying = () => {
       >
         <div className="flex flex-col gap-2">
           <div className="flex flex-col gap-4">
-          <SelectComponent
+            <SelectComponent
               defaultValue={"Default State"}
               onChange={handleChange}
-              options={options}
+              options={buttonStates}
             />
-           
+
             <SelectComponent
               label={"Font Size"}
               defaultValue={"sm"}
@@ -183,41 +167,21 @@ const SubmitButtonStying = () => {
               onChange={handleFontWeight}
               options={fontWeight}
             />
+            <ColorPickerComponent
+              label="Font Color"
+              value={color1}
+              popup={true}
+              onChange={onFontChnage}
+              fontColor={fontColor}
+            />
+            <ColorPickerComponent
+              label="Background Color"
+              value={color2}
+              popup={true}
+              onChange={onBgChange}
+              fontColor={bgColor}
+            />
 
-            <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">
-                Font Color
-              </span>
-              <div className="flex w-2/4 items-center gap-2">
-                <Colorpicker
-                  blockStyles={{
-                    width: "24px",
-                    height: "24px",
-                  }}
-                  value={color1}
-                  popup={true}
-                  onChange={onFontChnage}
-                />
-                <span className="text-black">{fontColor}</span>
-              </div>
-            </div>
-            <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">
-                Background Color
-              </span>
-              <div className="flex w-2/4 items-center gap-2">
-                <Colorpicker
-                  blockStyles={{
-                    width: "24px",
-                    height: "24px",
-                  }}
-                  value={color2}
-                  popup={true}
-                  onChange={onBgChange}
-                />
-                <span className="text-black">{bgColor}</span>
-              </div>
-            </div>
             <div className="flex  items-center">
               <span className="text-xs w-2/4  text-[#00000073]">
                 Border Radius

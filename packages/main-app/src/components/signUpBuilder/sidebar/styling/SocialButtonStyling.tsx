@@ -9,13 +9,16 @@ import {
 import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import "../sidebar.css";
-import { Select, SelectProps } from "antd";
-import { fontSize, fontWeight } from "../../../../styleConfigs";
+import {
+  buttonStates,
+  fontSize,
+  fontWeight,
+  layoutType,
+} from "../../../../styleConfigs";
 
-import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
-import PrimaryLayout from "../../../../assests/PrimaryLayout";
-import EqualSplitLayout from "../../../../assests/EqualSplitLayout";
+import { AnyColorFormat } from "antd-colorpicker";
 import SelectComponent from "../../../common-functions/SelectComponent";
+import ColorPickerComponent from "./ColorPicker";
 
 // import icon from '../../../assests/equallySplitLayout.svg'
 
@@ -40,19 +43,6 @@ const SocialButtonStyling = () => {
   const onBgChange = (colors: AnyColorFormat) => {
     setColorBg(colors), setBgColor(colors.hex);
   };
-  const themeBox = [
-    {
-      layout: "Equally-Split",
-      text: "Equally Split",
-
-      image: <EqualSplitLayout />,
-    },
-    {
-      layout: "One-Primary",
-      text: "One Primary",
-      image: <PrimaryLayout />,
-    },
-  ];
 
   function onSiteChanged(e: any) {
     signUpState.setState({
@@ -111,25 +101,6 @@ const SocialButtonStyling = () => {
       },
     });
   }, [fontColor, setFontColor, bgColor, setBgColor]);
-
-  const options: SelectProps["options"] = [
-    {
-      label: "default State",
-      value: "Default State",
-    },
-    {
-      label: "hover State",
-      value: "Hover State",
-    },
-    {
-      label: "active State",
-      value: "Active State",
-    },
-    {
-      label: "disabled State",
-      value: "Disabled State",
-    },
-  ];
 
   const handleChange = (value: string | string[]) => {
     signUpState.setState({
@@ -264,7 +235,7 @@ const SocialButtonStyling = () => {
         <div className="flex flex-col gap-2">
           <span className="text-xs text-[#000000d9] font-medium">Layout</span>
           <div className="flex gap-2 items-center">
-            {themeBox.map((data: any) => {
+            {layoutType.map((data: any) => {
               return (
                 <div key={data.layout}>
                   <div
@@ -311,7 +282,7 @@ const SocialButtonStyling = () => {
             <SelectComponent
               defaultValue={"Default State"}
               onChange={handleChange}
-              options={options}
+              options={buttonStates}
             />
 
             <SelectComponent
@@ -326,41 +297,21 @@ const SocialButtonStyling = () => {
               onChange={handleFontWeight}
               options={fontWeight}
             />
+            <ColorPickerComponent
+              label="Font Color"
+              value={color1}
+              popup={true}
+              onChange={onFontChnage}
+              fontColor={fontColor}
+            />
+            <ColorPickerComponent
+              label="Background Color"
+              value={color2}
+              popup={true}
+              onChange={onBgChange}
+              fontColor={bgColor}
+            />
 
-            <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">
-                Font Color
-              </span>
-              <div className="flex w-2/4 items-center gap-2">
-                <Colorpicker
-                  blockStyles={{
-                    width: "24px",
-                    height: "24px",
-                  }}
-                  value={color1}
-                  popup={true}
-                  onChange={onFontChnage}
-                />
-                <span className="text-black">{fontColor}</span>
-              </div>
-            </div>
-            <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">
-                Background Color
-              </span>
-              <div className="flex w-2/4 items-center gap-2">
-                <Colorpicker
-                  blockStyles={{
-                    width: "24px",
-                    height: "24px",
-                  }}
-                  value={color2}
-                  popup={true}
-                  onChange={onBgChange}
-                />
-                <span className="text-black">{bgColor}</span>
-              </div>
-            </div>
             <div className="flex  items-center">
               <span className="text-xs w-2/4  text-[#00000073]">
                 Border Radius

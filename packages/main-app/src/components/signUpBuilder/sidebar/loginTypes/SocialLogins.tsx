@@ -2,30 +2,11 @@ import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 // import googleIcon from '../../..'
 import { Icon } from "@iconify/react";
+import { socialButtonOptions } from "../../../../styleConfigs";
 const SocialLogin = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   // Add/Remove checked item from list
-  const socialButtonOptions = [
-    {
-      label: "Google",
-      value: "google",
-      logo: "logos:google-icon",
-      checked: true,
-    },
-    {
-      label: "Apple",
-      value: "apple",
-      logo: "logos:apple",
-      checked: false,
-    },
-    { label: "Git", value: "git", logo: "logos:github-icon", checked: false },
-    {
-      label: "Linkedin",
-      value: "linkedin",
-      logo: "logos:linkedin-icon",
-      checked: false,
-    },
-  ];
+  
   const [checked, setChecked]: any = useState(socialButtonOptions);
   const updateCheckStatus = (index: any) => {
     setChecked(

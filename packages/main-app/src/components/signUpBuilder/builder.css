@@ -17,3 +17,6 @@
 .ant-tabs-content-holder::-webkit-scrollbar{
     display: none;
 }
+.ant-select-selector{
+    border-radius: 2px !important;
+}

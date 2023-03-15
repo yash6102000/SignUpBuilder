@@ -71,7 +71,27 @@ export default ({ children }: { children: any }) => {
     socialLoginButton:[],
     emailPassLogin:"enablePasswordLogin",
     userApprovel:[],
+typography:{
+  fontType:"'Open Sans', sans-serif",
+  normalText:{
+    fontSize:'12px',
+    bold:false
+  },
+  title:{
+    fontSize:'24px',
+    bold:false
+  },
+  subTitle:{
+    fontSize:'14px',
+    bold:false
+  },
+  links:{
+    fontSize:'12px',
+    bold:false,
+    linkTypes:'underline-none'
+  }
 
+}
     
   });
 

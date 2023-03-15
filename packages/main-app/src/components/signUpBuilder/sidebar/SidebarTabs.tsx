@@ -1,8 +1,9 @@
 import { Tabs, TabsProps } from "antd";
 import React from "react";
-import Sidebar from "./Sidebar";
-import LoginTypes from "./loginTypes/LoginTypes";
+
 import '../builder.css'
+import LoginTypes from "./loginTypes/LoginTypes";
+import Sidebar from "./Sidebar";
 const SidebarTabs = () => {
   const items: TabsProps["items"] = [
     {

@@ -172,34 +172,48 @@ const Container = () => {
   useEffect(() => {
     fullScreenChange;
   });
-  
+
   return (
     <div className="w-full">
       <div className="bg-[#F0F5FF] py-7 flex px-5 flex-col gap-7">
         <div className="flex justify-between items-center">
           <div className="flex gap-3 items-center">
-
-          <RedoOutlined />
-          <hr className="h-5 w-px bg-[#ADC6FF]" />
-          <UndoOutlined />
+            <RedoOutlined />
+            <hr className="h-5 w-px bg-[#ADC6FF]" />
+            <UndoOutlined />
           </div>
           <div className="flex gap-4 items-center">
             <MobileOutlined
+              tabIndex={0}
+              aria-label="mobile view button"
               onClick={mobileChange}
+              onKeyUp={(e) => {
+                if (e.key === "Enter") mobileChange();
+              }}
               className={`${
                 signUpState.state.viewPort.mobile && "text-blue-600"
               }`}
             />
             <hr className="h-5 w-px bg-[#ADC6FF]" />
             <TabletOutlined
+              tabIndex={0}
+              aria-label="tablet view button"
               onClick={tabletChange}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") tabletChange();
+              }}
               className={`${
                 signUpState.state.viewPort.tablet && "text-blue-600"
               }`}
             />
             <hr className="h-5 w-px bg-[#ADC6FF]" />
             <DesktopOutlined
+              tabIndex={0}
+              aria-label="desktop view button"
               onClick={desktopChange}
+              onKeyUp={(e) => {
+                if (e.key=== "Enter") desktopChange();
+              }}
               className={`${
                 signUpState.state.viewPort.desktop && "text-blue-600"
               } pointer`}
@@ -217,12 +231,22 @@ const Container = () => {
               </span>
               {signUpState.state.viewPort.fullScreen ? (
                 <FullscreenExitOutlined
+                  tabIndex={0}
+                  aria-label="fullscreen view"
                   onClick={ExitFullScreenChange}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") ExitFullScreenChange();
+                  }}
                   className="cursor-pointer"
                 />
               ) : (
                 <FullscreenOutlined
+                  tabIndex={0}
+                  aria-label="exit fullscreen view"
                   onClick={fullScreenChange}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter") fullScreenChange();
+                  }}
                   className="cursor-pointer"
                 />
               )}
@@ -242,7 +266,6 @@ const Container = () => {
             }
           />
         </Routes>
-
       </div>
     </div>
   );

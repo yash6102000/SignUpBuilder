@@ -1,7 +1,8 @@
 import React from "react"
 import SocialLogin from "./SocialLogins"
 import EmailPassLogin from "./EmailPassLogin"
-import UserApprovel from "./userApprovel"
+import UserApprovel from "./UserApprovel"
+
 const LoginTypes=()=>{
     return(
         <div className="flex flex-col">

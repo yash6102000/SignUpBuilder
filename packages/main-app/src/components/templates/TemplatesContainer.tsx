@@ -2,7 +2,6 @@ import { FileImageOutlined } from "@ant-design/icons";
 import React from "react";
 import Template1Logo from "../../assests/Template1Logo";
 import { StoreContext } from "../../state/signUpState";
-import { Link } from "react-router-dom";
 //@ts-ignore
 const TemplateContainer = () => {
   const { signUpState }: any = React.useContext(StoreContext);

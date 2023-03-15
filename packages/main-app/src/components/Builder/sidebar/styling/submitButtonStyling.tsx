@@ -11,6 +11,7 @@ import { Select, SelectProps } from "antd";
 import { fontSize, fontWeight } from "../../../../styleConfigs";
 import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
 import React from "react";
+import SelectComponent from "../../../common-functions/SelectComponent";
 const SubmitButtonStying = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   const [fontColor, setFontColor] = useState(
@@ -107,8 +108,8 @@ const SubmitButtonStying = () => {
         ...signUpState.state.buttons,
         submitButton: {
           ...signUpState.state.buttons.submitButton,
-          buttonState:
-            (signUpState.state.buttons.submitButton.buttonState = value),
+          buttonState: (signUpState.state.buttons.submitButton.buttonState =
+            value),
         },
       },
     });
@@ -164,35 +165,29 @@ const SubmitButtonStying = () => {
       >
         <div className="flex flex-col gap-2">
           <div className="flex flex-col gap-4">
-          <div>
-              {" "}
-              <Select
-                defaultValue="Default State"
-                onChange={handleChange}
-                style={{ width: "100%" }}
-                options={options}
-              />
-            </div>
+          <SelectComponent
+              defaultValue={"Default State"}
+              onChange={handleChange}
+              options={options}
+            />
+           
+            <SelectComponent
+              label={"Font Size"}
+              defaultValue={"sm"}
+              onChange={handleFontSize}
+              options={fontSize}
+            />
+            <SelectComponent
+              label={"Font Weight"}
+              defaultValue={"semibold"}
+              onChange={handleFontWeight}
+              options={fontWeight}
+            />
+
             <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">Font Size</span>
-              <Select
-              className="w-2/4"
-                defaultValue="sm"
-                onChange={handleFontSize}
-                options={fontSize}
-              />
-            </div>
-            <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">Font Weight</span>
-              <Select
-              className="w-2/4"
-                defaultValue="semibold"
-                onChange={handleFontWeight}
-                options={fontWeight}
-              />
-            </div>
-            <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">Font Color</span>
+              <span className="text-xs w-2/4  text-[#00000073]">
+                Font Color
+              </span>
               <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{
@@ -207,7 +202,9 @@ const SubmitButtonStying = () => {
               </div>
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">Background Color</span>
+              <span className="text-xs w-2/4  text-[#00000073]">
+                Background Color
+              </span>
               <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{
@@ -222,7 +219,9 @@ const SubmitButtonStying = () => {
               </div>
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">Border Radius</span>
+              <span className="text-xs w-2/4  text-[#00000073]">
+                Border Radius
+              </span>
               <div className="flex w-2/4 items-center gap-2">
                 <div className="flex border border-[#D9D9D9] bg-white py-1.5 px-3 gap-6 items-center">
                   <MinusOutlined

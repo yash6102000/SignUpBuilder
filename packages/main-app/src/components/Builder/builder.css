@@ -1,0 +1,19 @@
+#builder-container{
+    max-height: calc(100vh - 110px);
+    overflow: auto;
+}
+#builder-container::-webkit-scrollbar{
+ display: none;
+}
+#sidebar-tabs-container{
+    max-height: calc(100vh - 110px);
+}
+#sidebar-tabs-container::-webkit-scrollbar{
+    display: none;
+}
+.ant-tabs-content-holder{
+    overflow: auto !important;
+}
+.ant-tabs-content-holder::-webkit-scrollbar{
+    display: none;
+}

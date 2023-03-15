@@ -1,9 +1,10 @@
-import { Select, SelectProps } from "antd";
+import {  SelectProps } from "antd";
 import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
 import { fontSize, fontWeight } from "../../../../styleConfigs";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
+import SelectComponent from "../../../common-functions/SelectComponent";
 const InputFieldStyling = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   const [fontColor, setFontColor] = useState(
@@ -58,7 +59,14 @@ const InputFieldStyling = () => {
           labelFontColors),
       },
     });
-  }, [fontColor, setFontColor, bgColor, setBgColor,labelFontColors,setLabelColor]);
+  }, [
+    fontColor,
+    setFontColor,
+    bgColor,
+    setBgColor,
+    labelFontColors,
+    setLabelColor,
+  ]);
   const handleChange = (value: string | string[]) => {
     signUpState.setState({
       ...signUpState.state,
@@ -116,33 +124,25 @@ const InputFieldStyling = () => {
   ];
   return (
     <div className="flex flex-col px-5 gap-4">
-      <div className="flex justify-between items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">Field State</span>
-        <Select
-          className="w-2/4"
-          defaultValue=""
-          onChange={handleChange}
-          options={fieldState}
-        />
-      </div>
-      <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">Font Size</span>
-        <Select
-          className="w-2/4"
-          defaultValue="sm"
-          onChange={handleFontSize}
-          options={fontSize}
-        />
-      </div>
-      <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">Font Weight</span>
-        <Select
-          className="w-2/4"
-          defaultValue="regular"
-          onChange={handleFontWeight}
-          options={fontWeight}
-        />
-      </div>
+      <SelectComponent
+        label={"Field State"}
+        defaultValue={""}
+        onChange={handleChange}
+        options={fieldState}
+      />
+
+      <SelectComponent
+        label={"Font Size"}
+        defaultValue={"sm"}
+        onChange={handleFontSize}
+        options={fontSize}
+      />
+      <SelectComponent
+        label={"Font Weight"}
+        defaultValue={"regular"}
+        onChange={handleFontWeight}
+        options={fontWeight}
+      />
 
       <div className="flex  items-center">
         <span className="text-xs w-2/4  text-[#00000073]">Font Color</span>
@@ -160,7 +160,9 @@ const InputFieldStyling = () => {
         </div>
       </div>
       <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">Background Color</span>
+        <span className="text-xs w-2/4  text-[#00000073]">
+          Background Color
+        </span>
         <div className="flex w-2/4 items-center gap-2">
           <Colorpicker
             blockStyles={{
@@ -255,26 +257,24 @@ const InputFieldStyling = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-between items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">Label Font State</span>
-        <Select
-          className="w-2/4"
-          defaultValue="sm"
-          onChange={handleLabelFontSize}
-          options={fontSize}
-        />
-      </div>
+      <SelectComponent
+        label={"Label Font State"}
+        defaultValue={"sm"}
+        onChange={handleLabelFontSize}
+        options={fontSize}
+      />
+
+      <SelectComponent
+        label={"Label Font Weight"}
+        defaultValue={"regular"}
+        onChange={handleLabelFontWeight}
+        options={fontWeight}
+      />
+
       <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">Label Font Weight</span>
-        <Select
-          className="w-2/4"
-          defaultValue="regular"
-          onChange={handleLabelFontWeight}
-          options={fontWeight}
-        />
-      </div>
-      <div className="flex  items-center">
-        <span className="text-xs w-2/4  text-[#00000073]">Label Font Color</span>
+        <span className="text-xs w-2/4  text-[#00000073]">
+          Label Font Color
+        </span>
         <div className="flex w-2/4 items-center gap-2">
           <Colorpicker
             blockStyles={{

@@ -2,6 +2,7 @@ import { Tabs, TabsProps } from "antd";
 import React from "react";
 import Sidebar from "./Sidebar";
 import LoginTypes from "./loginTypes/LoginTypes";
+import '../builder.css'
 const SidebarTabs = () => {
   const items: TabsProps["items"] = [
     {
@@ -17,7 +18,7 @@ const SidebarTabs = () => {
   ];
   return (
     <div>
-      <Tabs defaultActiveKey="1" items={items} />
+      <Tabs id="sidebar-tabs-container" defaultActiveKey="1" items={items} />
     </div>
   );
 };

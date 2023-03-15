@@ -15,6 +15,7 @@ import { fontSize, fontWeight } from "../../../../styleConfigs";
 import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
 import PrimaryLayout from "../../../../assests/PrimaryLayout";
 import EqualSplitLayout from "../../../../assests/EqualSplitLayout";
+import SelectComponent from "../../../common-functions/SelectComponent";
 
 // import icon from '../../../assests/equallySplitLayout.svg'
 
@@ -137,8 +138,8 @@ const SocialButtonStyling = () => {
         ...signUpState.state.buttons,
         socialButtons: {
           ...signUpState.state.buttons.socialButtons,
-          buttonState:
-            (signUpState.state.buttons.socialButtons.buttonState = value),
+          buttonState: (signUpState.state.buttons.socialButtons.buttonState =
+            value),
         },
       },
     });
@@ -160,7 +161,9 @@ const SocialButtonStyling = () => {
           );
         }}
       >
-        <span className="text-xs text-[#000000d9] font-medium">Social Button Styling</span>
+        <span className="text-xs text-[#000000d9] font-medium">
+          Social Button Styling
+        </span>
 
         {currentAccordian === 1 ? (
           <UpOutlined className="text-black" />
@@ -283,7 +286,7 @@ const SocialButtonStyling = () => {
                     className={`flex gap-4 h-[88px] relative justify-center items-center  w-24 p-1  border border-gray-300 rounded`}
                   >
                     <input
-                    className="absolute top-2 left-2"
+                      className="absolute top-2 left-2"
                       type="radio"
                       value={data.layout}
                       checked={
@@ -305,35 +308,29 @@ const SocialButtonStyling = () => {
         <div className="flex flex-col gap-2">
           <h4 className="text-xs text-[#000000d9] font-medium">Styling</h4>
           <div className="flex  flex-col gap-4">
-            <div>
-              {" "}
-              <Select
-                defaultValue="Default State"
-                onChange={handleChange}
-                style={{ width: "100%" }}
-                options={options}
-              />
-            </div>
+            <SelectComponent
+              defaultValue={"Default State"}
+              onChange={handleChange}
+              options={options}
+            />
+
+            <SelectComponent
+              label={"Font Size"}
+              defaultValue={"sm"}
+              onChange={handleFontSize}
+              options={fontSize}
+            />
+            <SelectComponent
+              label={"Font Weight"}
+              defaultValue={"semibold"}
+              onChange={handleFontWeight}
+              options={fontWeight}
+            />
+
             <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">Font Size</span>
-              <Select
-              className="w-2/4"
-                defaultValue="sm"
-                onChange={handleFontSize}
-                options={fontSize}
-              />
-            </div>
-            <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">Font Weight</span>
-              <Select
-              className="w-2/4"
-                defaultValue="semibold"
-                onChange={handleFontWeight}
-                options={fontWeight}
-              />
-            </div>
-            <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">Font Color</span>
+              <span className="text-xs w-2/4  text-[#00000073]">
+                Font Color
+              </span>
               <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{
@@ -348,7 +345,9 @@ const SocialButtonStyling = () => {
               </div>
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">Background Color</span>
+              <span className="text-xs w-2/4  text-[#00000073]">
+                Background Color
+              </span>
               <div className="flex w-2/4 items-center gap-2">
                 <Colorpicker
                   blockStyles={{
@@ -363,7 +362,9 @@ const SocialButtonStyling = () => {
               </div>
             </div>
             <div className="flex  items-center">
-              <span className="text-xs w-2/4  text-[#00000073]">Border Radius</span>
+              <span className="text-xs w-2/4  text-[#00000073]">
+                Border Radius
+              </span>
               <div className="flex items-center w-2/4 gap-2">
                 <div className="flex border border-[#D9D9D9] bg-white py-1.5 px-3 gap-6 items-center">
                   <MinusOutlined

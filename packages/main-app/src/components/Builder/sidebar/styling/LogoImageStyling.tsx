@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Select, SelectProps, Upload } from "antd";
+import {  SelectProps, Upload } from "antd";
 import type { RcFile, UploadFile, UploadProps } from "antd/es/upload/interface";
 import { StoreContext } from "../../../../state/signUpState";
 import "../sidebar.css";
+import SelectComponent from "../../../common-functions/SelectComponent";
 const LogoImageStyling = () => {
   const { signUpState }: any = React.useContext(StoreContext);
   const [fileList, setFileList] = useState<UploadFile[]>([]);
@@ -46,7 +47,7 @@ const LogoImageStyling = () => {
   const handleChange = (value: string | string[]) => {
     signUpState.setState({
       ...signUpState.state,
-      logoAlignment: (signUpState.state.logoAlignment =value),
+      logoAlignment: (signUpState.state.logoAlignment = value),
     });
   };
   const onPreview = async (file: UploadFile) => {
@@ -79,15 +80,12 @@ const LogoImageStyling = () => {
           {fileList.length < 1 && "+ Upload"}
         </Upload>
       </div>
-      <div className="flex items-center gap-4">
-        <span className="text-xs w-2/4  text-[#00000073]">Alignment</span>
-          <Select
-          className="w-2/4"
-            defaultValue={signUpState.state.logoAlignment}
-            onChange={handleChange}
-            options={logoAlignments}
-          />
-      </div>
+      <SelectComponent
+        label={"Alignment"}
+        defaultValue={signUpState.state.logoAlignment}
+        onChange={handleChange}
+        options={logoAlignments}
+      />
     </div>
   );
 };

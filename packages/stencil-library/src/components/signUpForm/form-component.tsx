@@ -5,6 +5,7 @@ import starLogo from '../../star.svg';
 import avtar from '../../Avatar.svg';
 import addCircleOutline from '../../AddCircleOutline.svg';
 import { SignpState } from '../../interface';
+import editIcon from '../../Edit.svg';
 //@ts-ignore
 @Component({
   tag: 'form-component',
@@ -18,15 +19,25 @@ export class FormComponent {
   handleChange(event) {
     this.email = event?.target?.value;
   }
+  @State() onEdit = false;
+  @State() onEditLoginBoxHeading = false;
+  @State() layoutBoxDescription = false;
+  @State() showPassword = false;
 
   render() {
+console.log(this.email,'ye email hai')
     const socialButtonState = this.data.buttons.socialButtons?.buttonState;
     const submitButtonState = this.data.buttons.submitButton?.buttonState;
     let filterApprovelData = [];
     this.data?.userApprovel?.filter((data: any) => {
       return filterApprovelData.push(data.value);
     });
-    console.log(filterApprovelData, 'l');
+
+    if (this.onEditLoginBoxHeading) {
+      const heading = document?.getElementById('login-box-heading');
+      heading?.focus();
+    }
+    console.log(this.data.colors.error,'this.data.colors.error')
     return (
       <div
         class={`flex  rounded-xl   border-text-[#8C8C8C] border ${
@@ -48,12 +59,19 @@ export class FormComponent {
                   )}
                 </div>
                 <div class="max-w-[280px]">
-                  <h1 class="text-3xl font-medium text-white outline-none image relative" contentEditable={true}>
-                    Start your journey with us.
+                  <h1
+                    class={`text-3xl font-medium ${this.onEdit && 'underline underline-offset-8 outline-none transition-all duration-300 ease-in-out'}  text-white `}
+                    contentEditable={this.onEdit}
+                  >
+                    Start your journey with us. <img onClick={() => (this.onEdit = !this.onEdit)} class="inline-block cursor-pointer w-4 h-4" src={editIcon} alt="" />
                   </h1>
 
-                  <span class="text-white text-sm outline-none image relative" contentEditable={true}>
-                    Discover the world’s best community of freelancers ad business owners.
+                  <span
+                    class={`text-white text-sm ${this.layoutBoxDescription && 'underline underline-offset-8 outline-none transition-all duration-300 ease-in-out'}`}
+                    contentEditable={this.layoutBoxDescription}
+                  >
+                    Discover the world’s best community of freelancers ad business owners.{' '}
+                    <img onClick={() => (this.layoutBoxDescription = !this.layoutBoxDescription)} class="inline-block cursor-pointer w-4 h-4" src={editIcon} alt="" />
                   </span>
                 </div>
               </div>
@@ -100,8 +118,24 @@ export class FormComponent {
             )}
 
             <div class="flex items-center gap-1.5">
-              <h3 class={`text-xl font-medium  ${this.data.theme.color === 'dark' ? 'text-white' : 'text-black'} `} contentEditable={true}>
+              <h3
+                class={`text-xl font-medium ${this.onEditLoginBoxHeading && 'underline underline-offset-8 outline-none transition-all duration-300 ease-in-out'}  ${
+                  this.data.theme.color === 'dark' ? 'text-white' : 'text-black'
+                } `}
+                contentEditable={this.onEditLoginBoxHeading}
+                id="login-box-heading"
+                tabIndex={0}
+                onMouseOut={() => this.onEditLoginBoxHeading === false}
+              >
                 Welcome to Company Name!
+                <img
+                  onClick={() => {
+                    this.onEditLoginBoxHeading = !this.onEditLoginBoxHeading;
+                  }}
+                  class="inline-block cursor-pointer w-4 h-4"
+                  src={editIcon}
+                  alt=""
+                />
               </h3>
             </div>
           </div>
@@ -133,7 +167,11 @@ export class FormComponent {
                     class={`border-[#D9D9D9] border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
                     placeholder="Enter Your Email"
                     type="text"
+                    required={true}
                   />
+                  {
+                    !this.email?.includes('@')&&this.email?.length>0&&<span style={{ color: this.data.colors.error }}>please enter a valid email</span>
+                  }
                 </div>
                 {this.data.emailPassLogin === 'enablePasswordLogin' && (
                   <div class="flex flex-col gap-2">
@@ -147,18 +185,29 @@ export class FormComponent {
                     >
                       Password
                     </label>
-                    <input
-                      style={{
-                        color: `${this.data.inputField.fontColor}`,
-                        backgroundColor: `${this.data.inputField.backgroundColor}`,
-                        fontWeight: `${this.data.inputField.fontWeight}`,
-                        borderWidth: `${this.data.inputField.boxBorder}px`,
-                        borderRadius: `${this.data.inputField.borderRadius}px`,
-                      }}
-                      class={`border-[#D9D9D9] border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
-                      placeholder="Enter your password"
-                      type="password"
-                    />
+                    <div class="relative">
+                      <input
+                        style={{
+                          color: `${this.data.inputField.fontColor}`,
+                          backgroundColor: `${this.data.inputField.backgroundColor}`,
+                          fontWeight: `${this.data.inputField.fontWeight}`,
+                          borderWidth: `${this.data.inputField.boxBorder}px`,
+                          borderRadius: `${this.data.inputField.borderRadius}px`,
+                        }}
+                        class={`border-[#D9D9D9] w-full border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
+                        placeholder="Enter your password"
+                        type={this.showPassword ? 'text' : 'password'}
+                      />
+                      <button
+                        type="button"
+                        class="absolute text-[#00000073] right-3 top-[11px]"
+                        onClick={() => {
+                          this.showPassword = !this.showPassword;
+                        }}
+                      >
+                        {this.showPassword ? <iconify-icon  icon="mdi:eye-off-outline"></iconify-icon> : <iconify-icon icon="ic:outline-remove-red-eye"></iconify-icon>}
+                      </button>
+                    </div>
                   </div>
                 )}
 
@@ -169,30 +218,27 @@ export class FormComponent {
                     fontWeight: `${this.data.buttons.submitButton.fontWeight}`,
                     borderRadius: `${this.data.buttons.submitButton.borderRadius}px`,
                   }}
-                  class={`bg-[#070930] ${submitButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'} ${
+                  class={`bg-[#070930] max-h-12 ${submitButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'} ${
                     submitButtonState === 'Hover State' && 'border-[#4096ff]'
                   }    text-${this.data.buttons.submitButton.fontSize} rounded-sm py-2 text-center items-center text-white`}
                 >
                   Continue
                 </button>
                 <div class="flex flex-col gap-1">
-                  {filterApprovelData.length>0 && (
+                  {filterApprovelData.length > 0 && (
                     <span class={`text-xs flex items-center gap-1 text-[#00000073] ${this.data.theme.color === 'dark' ? 'text-white' : 'text-black'}`}>
-                      By continuing, you agree to the{' '}
+                      <span>By continuing, you agree to the</span>
                       {filterApprovelData.includes('termsOfUse') && (
                         <a href="/" style={{ color: this.data.colors.primary }}>
                           Terms of Service
                         </a>
                       )}
-                      {
-                        filterApprovelData.length>1&&<span class='text-[#00000073] text-xs'>and</span>
-                      }
+                      {filterApprovelData.length > 1 && <span class="text-[#00000073] text-xs">and</span>}
                       {''}
                       {filterApprovelData.includes('privacyPolicy') && (
-                      
-                          <a style={{ color: this.data.colors.primary }} href="/">
-                            Privacy Policy
-                          </a>
+                        <a style={{ color: this.data.colors.primary }} href="/">
+                          Privacy Policy
+                        </a>
                       )}
                     </span>
                   )}
@@ -221,15 +267,15 @@ export class FormComponent {
                           fontWeight: `${this.data.buttons.socialButtons.fontWeight}`,
                           borderRadius: `${this.data.buttons.socialButtons.borderRadius}px`,
                         }}
-                        class={`border flex items-center shadow-md  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
+                        class={`border max-h-12 flex items-center shadow-md  ${socialButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'}  ${
                           socialButtonState === 'Hover State' && 'border-[#4096ff]'
                         } gap-3 ${
                           this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && this.data.socialLoginButton.slice(-1)[0].label === data.label
-                            ? ' w-full h-10 flex items-center px-9 py-2  justify-center gap-1.5 text-center  '
+                            ? ' w-full  flex items-center px-9 py-2  justify-center gap-1.5 text-center  '
                             : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && this.data.socialLoginButton.length > 2
-                            ? 'px-9 py-2 h-10  flex items-center justify-center w-fit gap-1.5 text-center '
+                            ? 'px-9 py-2  flex items-center justify-center w-fit gap-1.5 text-center '
                             : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && this.data.socialLoginButton.length <= 2
-                            ? 'px-9 py-2 h-10  flex items-center justify-center w-full gap-1.5 text-center '
+                            ? 'px-9 py-2  flex items-center justify-center w-full gap-1.5 text-center '
                             : null
                         }`}
                       >

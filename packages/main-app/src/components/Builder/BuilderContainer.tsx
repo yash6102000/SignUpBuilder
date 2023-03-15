@@ -1,7 +1,7 @@
 import React from "react";
 import SidebarTabs from "./sidebar/SidebarTabs";
 import Container from "../../Container";
-
+import "../Builder/builder.css";
 import { StoreContext } from "../../state/signUpState";
 
 const BuilderContainer = () => {
@@ -9,11 +9,11 @@ const BuilderContainer = () => {
 
   return (
     <div className="flex">
-      <div className="flex flex-1">
+      <div className="flex flex-1" id="builder-container">
         <Container />
       </div>
       {!signUpState.state.viewPort.fullScreen && (
-        <div className="w-[355px]">
+        <div className="w-[355px]" >
           <SidebarTabs />
         </div>
       )}

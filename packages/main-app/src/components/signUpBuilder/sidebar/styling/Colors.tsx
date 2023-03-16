@@ -1,4 +1,4 @@
-import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
+import { AnyColorFormat } from "antd-colorpicker";
 import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import ColorPickerComponent from "./ColorPicker";

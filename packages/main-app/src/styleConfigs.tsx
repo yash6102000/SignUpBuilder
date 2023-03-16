@@ -3,19 +3,7 @@ import EqualSplitLayout from "./assests/EqualSplitLayout";
 import PrimaryLayout from "./assests/PrimaryLayout";
 import React from "react";
 import { EditOutlined } from "@ant-design/icons";
-//styling data config
-export const fontSize = [
-  { value: "xs", label: "12px" },
-  { value: "sm", label: "14px" },
-  { value: "base", label: "16px" },
-  { value: "lg", label: "18px" },
-  { value: "xl", label: "20px" },
-  { value: "2xl", label: "24px" },
-  { value: "3xl", label: "30px" },
-];
-/**
- * @note make chanes wherever use fontsize array => fontSizes
- */
+
 export const fontSizes = [
   { value: "12px", label: "12px" },
   { value: "14px", label: "14px" },

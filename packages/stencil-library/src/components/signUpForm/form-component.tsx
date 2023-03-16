@@ -148,10 +148,11 @@ console.log(this.email,'ye email hai')
               <div class={`flex flex-col gap-7`}>
                 <div class="flex flex-col gap-2">
                   <label
-                    class={` text-${this.data.inputField.labelFontSize}`}
+                 
                     style={{
                       color: `${this.data.inputField.labelFontColor}`,
                       fontWeight: `${this.data.inputField.labelFontWeight}`,
+                      fontSize:this.data.inputField.labelFontSize
                     }}
                     htmlFor=""
                   >
@@ -164,10 +165,11 @@ console.log(this.email,'ye email hai')
                       fontWeight: `${this.data.inputField.fontWeight}`,
                       borderWidth: `${this.data.inputField.boxBorder}px`,
                       borderRadius: `${this.data.inputField.borderRadius}px`,
+                      fontSize:this.data.inputField.fontSize
                     }}
                     value={this.email}
                     onInput={event => this.handleChange(event)}
-                    class={`border-[#D9D9D9] border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
+                    class={`border-[#D9D9D9] border-2 px-3 py-2 rounded-sm`}
                     placeholder="Enter Your Email"
                     type="text"
                     required={true}
@@ -179,10 +181,11 @@ console.log(this.email,'ye email hai')
                 {this.data.emailPassLogin === 'enablePasswordLogin' && (
                   <div class="flex flex-col gap-2">
                     <label
-                      class={` text-${this.data.inputField.labelFontSize}`}
+                     
                       style={{
                         color: `${this.data.inputField.labelFontColor}`,
                         fontWeight: `${this.data.inputField.labelFontWeight}`,
+                        fontSize:this.data.inputField.labelFontSize
                       }}
                       htmlFor=""
                     >
@@ -196,8 +199,9 @@ console.log(this.email,'ye email hai')
                           fontWeight: `${this.data.inputField.fontWeight}`,
                           borderWidth: `${this.data.inputField.boxBorder}px`,
                           borderRadius: `${this.data.inputField.borderRadius}px`,
+                          fontSize:this.data.inputField.fontSize
                         }}
-                        class={`border-[#D9D9D9] w-full border-2 px-3 py-2 text-${this.data.inputField.fontSize} rounded-sm`}
+                        class={`border-[#D9D9D9] w-full border-2 px-3 py-2  rounded-sm`}
                         placeholder="Enter your password"
                         type={this.showPassword ? 'text' : 'password'}
                       />
@@ -220,12 +224,13 @@ console.log(this.email,'ye email hai')
                     backgroundColor: `${submitButtonState === 'Disabled State' ? '#0000000a' : this.data.buttons.submitButton.backgroundColor}`,
                     fontWeight: `${this.data.buttons.submitButton.fontWeight}`,
                     borderRadius: `${this.data.buttons.submitButton.borderRadius}px`,
+                    fontSize:this.data.buttons.submitButton.fontSize
                   }}
                   tabIndex={0}
                 type='submit'
                   class={`bg-[#070930] max-h-12 ${submitButtonState === 'Disabled State' ? 'cursor-not-allowed' : 'cursor-pointer hover:border-[#4096ff]'} ${
                     submitButtonState === 'Hover State' && 'border-[#4096ff]'
-                  }    text-${this.data.buttons.submitButton.fontSize} rounded-sm py-2 text-center items-center text-white`}
+                  }    rounded-sm py-2 text-center items-center text-white`}
                 >
                   Continue
                 </button>
@@ -238,7 +243,7 @@ console.log(this.email,'ye email hai')
                           Terms of Service
                         </a>
                       )}
-                      {filterApprovelData.length > 1 && <span class="text-[#00000073] text-xs">and</span>}
+                      {filterApprovelData.length > 1 && <span style={{fontSize:this.data.typography.normalText.fontSize,fontWeight:this.data.typography.normalText.bold?'bold':null}} class="text-[#00000073] text-xs">and</span>}
                       {''}
                       {filterApprovelData.includes('privacyPolicy') && (
                         <a class={this.data.typography.links.linkTypes} style={{ color: this.data.colors.primary ,fontSize:this.data.typography.links.fontSize,fontWeight:this.data.typography.links.bold?'bold':null}} href="/">
@@ -286,9 +291,9 @@ console.log(this.email,'ye email hai')
                       >
                         <iconify-icon icon={data.logo}></iconify-icon>
                         {this.data.buttons.socialButtons.layout.layoutType !== 'Equally-Split' && this.data.socialLoginButton.slice(-1)[0].label === data.label ? (
-                          <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
+                          <span style={{fontSize:this.data.buttons.socialButtons.fontSize}} >{data.label}</span>
                         ) : this.data.buttons.socialButtons.layout.layoutType === 'Equally-Split' && this.data.socialLoginButton.length < 4 ? (
-                          <span class={` text-${this.data.buttons.socialButtons.fontSize}`}>{data.label}</span>
+                          <span style={{fontSize:this.data.buttons.socialButtons.fontSize}}>{data.label}</span>
                         ) : null}
                       </div>
                     );

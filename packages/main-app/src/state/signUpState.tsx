@@ -22,7 +22,7 @@ export default ({ children }: { children: any }) => {
         layout: {
           layoutType: "Equally-Split",
         },
-        fontSize: "sm",
+        fontSize: "14px",
         fontWeight: "500",
         fontColor: "#000000",
         backgroundColor: "#FFFFFF",

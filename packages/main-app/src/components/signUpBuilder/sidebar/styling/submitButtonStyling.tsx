@@ -7,8 +7,7 @@ import {
 import { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import "../sidebar.css";
-import { Select, SelectProps } from "antd";
-import { buttonStates, fontSize, fontWeight } from "../../../../styleConfigs";
+import { buttonStates, fontSizes, fontWeight } from "../../../../styleConfigs";
 import { AnyColorFormat, Colorpicker } from "antd-colorpicker";
 import React from "react";
 import SelectComponent from "../../../common-functions/SelectComponent";
@@ -157,9 +156,9 @@ const SubmitButtonStying = () => {
 
             <SelectComponent
               label={"Font Size"}
-              defaultValue={"sm"}
+              defaultValue={"14px"}
               onChange={handleFontSize}
-              options={fontSize}
+              options={fontSizes}
             />
             <SelectComponent
               label={"Font Weight"}

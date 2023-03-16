@@ -2,7 +2,7 @@ import {  SelectProps } from "antd";
 import React, { useEffect, useState } from "react";
 import { StoreContext } from "../../../../state/signUpState";
 import { AnyColorFormat } from "antd-colorpicker";
-import { fontSize, fontWeight } from "../../../../styleConfigs";
+import {  fontSizes, fontWeight } from "../../../../styleConfigs";
 import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import SelectComponent from "../../../common-functions/SelectComponent";
 import ColorPickerComponent from "./ColorPicker";
@@ -134,9 +134,9 @@ const InputFieldStyling = () => {
 
       <SelectComponent
         label={"Font Size"}
-        defaultValue={"sm"}
+        defaultValue={"14px"}
         onChange={handleFontSize}
-        options={fontSize}
+        options={fontSizes}
       />
       <SelectComponent
         label={"Font Weight"}
@@ -232,9 +232,9 @@ const InputFieldStyling = () => {
       </div>
       <SelectComponent
         label={"Label Font State"}
-        defaultValue={"sm"}
+        defaultValue={"14px"}
         onChange={handleLabelFontSize}
-        options={fontSize}
+        options={fontSizes}
       />
 
       <SelectComponent

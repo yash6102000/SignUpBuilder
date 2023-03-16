@@ -11,7 +11,7 @@ import { StoreContext } from "../../../../state/signUpState";
 import "../sidebar.css";
 import {
   buttonStates,
-  fontSize,
+  fontSizes,
   fontWeight,
   layoutType,
 } from "../../../../styleConfigs";
@@ -287,9 +287,9 @@ const SocialButtonStyling = () => {
 
             <SelectComponent
               label={"Font Size"}
-              defaultValue={"sm"}
+              defaultValue={"14px"}
               onChange={handleFontSize}
-              options={fontSize}
+              options={fontSizes}
             />
             <SelectComponent
               label={"Font Weight"}

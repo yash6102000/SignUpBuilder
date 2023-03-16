@@ -9,6 +9,7 @@ import Colors from './styling/Colors';
 import LogoImageStyling from './styling/LogoImageStyling';
 import InputFieldStyling from './styling/InputFieldStyling';
 import Typography from './styling/Typography';
+import LayoutStyling from './styling/LayoutStyling';
 
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -44,20 +45,24 @@ const Sidebar = () => {
       getItem(<Theme />, '1'),
    
     ]),
-    getItem('Buttons', 'sub2','',[
-     getItem(<ButtonStyling/>, '2'),
+    getItem('Layout', 'sub2','',[
+      getItem(<LayoutStyling/>, '2'),
+      
+     ]),
+    getItem('Buttons', 'sub3','',[
+     getItem(<ButtonStyling/>, '3'),
      
     ]),
-    getItem('Logo Image', 'sub3','',[
-      getItem(<LogoImageStyling/>, '3')
+    getItem('Logo Image', 'sub4','',[
+      getItem(<LogoImageStyling/>, '4')
     ]),
-    getItem('Colors', 'sub4','',[
-      getItem(<Colors/>, '4')
+    getItem('Colors', 'sub5','',[
+      getItem(<Colors/>, '5')
     ]),
-    getItem('Input Field', 'sub5','',[
-      getItem(<InputFieldStyling/>, '5')
-    ]),  getItem('Typography', 'sub6','',[
-      getItem(<Typography/>, '6')
+    getItem('Input Field', 'sub6','',[
+      getItem(<InputFieldStyling/>, '6')
+    ]),  getItem('Typography', 'sub7','',[
+      getItem(<Typography/>, '7')
     ]),
   
 

@@ -89,7 +89,8 @@ typography:{
     fontSize:'12px',
     bold:false,
     linkTypes:'underline-none'
-  }
+  },
+  fontSearchUrl:''
 
 }
     

@@ -2,7 +2,10 @@ import React from "react";
 import SelectComponent from "../../../common-functions/SelectComponent";
 import { fontFamily, fontSizes, linkStyle } from "../../../../styleConfigs";
 import { StoreContext } from "../../../../state/signUpState";
+import { Input } from "antd";
+import '../../../signUpBuilder/builder.css'
 const Typography = () => {
+  const { Search } = Input;
   const { signUpState }: any = React.useContext(StoreContext);
   const handleNormalTextFontSize = (value: string) => {
     signUpState.setState({
@@ -112,10 +115,7 @@ const Typography = () => {
       },
     });
   };
-  console.log(
-    signUpState.state.typography.title.bold,
-    "signUpState.state.typography.title.bold"
-  );
+
   const handleFontFamily = (value: string) => {
     signUpState.setState({
       ...signUpState.state,
@@ -125,11 +125,34 @@ const Typography = () => {
       },
     });
   };
+  const onSearch = (value: string) =>  signUpState.setState({
+    ...signUpState.state,
+    typography: {
+      ...signUpState.state.typography,
+      fontSearchUrl: (signUpState.state.typography.fontSearchUrl = value),
+    },
+  });;
+  console.log(signUpState.state.typography.fontSearchUrl)
+  
   return (
-    <div className="p-5 pt-0">
+    <div className="p-5 pt-0 flex flex-col gap-3">
+      <template>
+ {signUpState.state.typography.fontSearchUrl}
+</template>
       <span className="text-xs text-[#000000d9] font-medium">
         Reference text Sizes
       </span>
+      <div className="flex flex-col gap-2">
+        <span className="text-xs text-[#000000d9]">Font URL</span>
+      <Search
+      addonBefore="https://"
+      placeholder="input search text"
+      allowClear
+      onSearch={onSearch}
+      style={{ width: 304 }}
+    />
+      </div>
+    
       <div className="flex flex-col gap-3">
         <div className="flex flex-col border-dashed border-b border-[#0000000f] gap-2 y-4">
           <span className="text-xs text-[#000000d9] font-medium">

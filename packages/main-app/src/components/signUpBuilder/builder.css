@@ -1,22 +1,26 @@
-#builder-container{
-    max-height: calc(100vh - 110px);
-    overflow: auto;
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+#builder-container {
+  max-height: calc(100vh - 110px);
+  overflow: auto;
 }
-#builder-container::-webkit-scrollbar{
- display: none;
+#builder-container::-webkit-scrollbar {
+  display: none;
 }
-#sidebar-tabs-container{
-    max-height: calc(100vh - 110px);
+#sidebar-tabs-container {
+  max-height: calc(100vh - 110px);
 }
-#sidebar-tabs-container::-webkit-scrollbar{
-    display: none;
+#sidebar-tabs-container::-webkit-scrollbar {
+  display: none;
 }
-.ant-tabs-content-holder{
-    overflow: auto !important;
+.ant-tabs-content-holder {
+  overflow: auto !important;
 }
-.ant-tabs-content-holder::-webkit-scrollbar{
-    display: none;
+.ant-tabs-content-holder::-webkit-scrollbar {
+  display: none;
 }
-.ant-select-selector{
-    border-radius: 2px !important;
+.ant-select-selector {
+  border-radius: 2px !important;
+}
+.ant-input-search-button {
+  display: none !important;
 }

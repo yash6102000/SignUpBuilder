@@ -22,6 +22,10 @@ const Colors = () => {
   const onErrorColorChange = (colors: AnyColorFormat) => {
     setError(colors), setErrorColor(colors.hex);
   };
+  const onSecondryChange = (colors: AnyColorFormat) => {
+console.log('hi')
+  };
+  const color3='#000000'
   useEffect(() => {
     signUpState.setState({
       ...signUpState.state,
@@ -46,6 +50,13 @@ const Colors = () => {
         popup={true}
         onChange={onPrimaryChange}
         fontColor={primaryColor}
+      />
+      <ColorPickerComponent
+        label="Secondry Color"
+        value={color3}
+        popup={true}
+        onChange={onSecondryChange}
+        fontColor={''}
       />
       <ColorPickerComponent
         label="Error Color"
